@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>Forms</title>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <!-- QUESTION ! -->
+
+    <form action="" method="post">
+      <fieldset>
+        <dl>
+          <dt><label for="name">Your Name</label></dt>
+          <dd><input type="text" name="name" id="name" required></dd>
+
+          <dt><label for="email">Email</label></dt>
+          <dd><input type="email" name="email" id="email" required></dd>
+
+          <dt><label for="phone">Phone Number</label></dt>
+          <dd><input type="tel" name="phone" id="phone" required></dd>
+
+          <dt><label for="message">Message</label></dt>
+          <dd><textarea rows="10" cols="50" name="message" id="message" require></textarea></dd>
+        </dl>
+
+        <input type="submit" value="Send Message">
+        <input type="reset" value="Clear">
+      </fieldset>
+    </form>
+
+    <!-- QUESTION 2 -->
+
+    <form action="" method="get">
+      <fieldset>
+        <label for="search">Search for</label>
+        <input type="search" name="search" id="search">
+
+        <label><input type="radio" name="media" value="tv">TV</label>
+        <label><input type="radio" name="media" value="movies">Movies</label>
+        <label><input type="radio" name="media" value="music">Music</label>
+
+        <input type="button" value="Search">
+      </fieldset>
+    </form>
+
+    <!-- QUESTION 3 -->
+
+    <form action="" method="get">
+      <fieldset>
+        <dl>
+          <dt><label for="movie">Movie</label></dt>
+          <dd>
+            <select name="movie" id="title">
+              <option value="looper" selected>Looper</option>
+              <option value="Frozen">Frozen</option>
+              <option value="tommy boy">Tommy Boy</option>
+            </select>
+          </dd>
+
+          <dt><label for="rating">Rating</label></dt>
+          <dd><input type="range" min="1" max="5" step="1" name="rating" id="rating"></dd>
+        </dl>
+
+        <div>
+          <label for="favorites">
+            <input type="checkbox" name="favorites" checked>
+            Add to my favorites
+          </label>
+        </div>
+
+        <input type="submit" value="Rate movie">
+      </fieldset>
+    </form>
+
+  </body>
+</html>
