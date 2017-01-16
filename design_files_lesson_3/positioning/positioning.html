@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>Title</title>
+    <meta charset="UTF-8" />
+    <style>
+      .positioned {
+        position: absolute;
+        padding: 30px 15px;
+        right: 0;
+        top: 20px;
+        left: 50%;
+        margin-left: -200px;
+        width: 400px;
+        background: white;
+        box-sizing: border-box;
+        z-index: 2;
+      }
+
+      .inbetween {
+        background: rgba(0, 0, 0, .6);
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 1;
+      }
+
+      .small-box {
+        position: inherit;
+        width: 20px;
+        height: 20px;
+        left: -10px;
+        top: -10px;
+        background: #fcfc99;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean posuere elementum luctus. Aliquam erat volutpat. Ut fermentum ligula nisl, porttitor pretium felis maximus in. Donec diam lacus, hendrerit a augue nec, ullamcorper scelerisque eros. Fusce in sodales nisl. Maecenas at magna et turpis eleifend egestas. Pellentesque quis nisi interdum, auctor lectus id, rutrum quam. Praesent nulla nisi, elementum eget viverra nec, tincidunt vel turpis. Pellentesque quis ante rhoncus, varius orci a, malesuada erat. Nulla efficitur consequat erat a tincidunt. Mauris ipsum felis, fringilla sed venenatis sed, efficitur nec magna. Nullam placerat accumsan diam a dapibus. Curabitur venenatis arcu in nisl facilisis pretium.</p>
+      <p>Quisque ac diam et nunc ullamcorper euismod. Quisque justo velit, ullamcorper ac justo et, lacinia laoreet velit. Curabitur nibh lacus, porttitor at scelerisque vitae, fermentum eget nunc. Donec dapibus pretium lectus, scelerisque imperdiet leo consectetur vitae. Vestibulum convallis velit ut finibus aliquam. Donec sed ipsum condimentum, condimentum felis vitae, mattis massa. Aliquam eget feugiat tortor. Maecenas non finibus libero, ac dapibus odio. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean sit amet neque ac mauris viverra porttitor at quis nisi. Etiam nec lobortis lectus, eget iaculis leo. Phasellus in elementum odio, vel cursus nulla. Vestibulum faucibus efficitur mauris, ultrices dictum quam consequat a. Quisque eget auctor metus. Integer quis ipsum lectus. Praesent ipsum dolor, ullamcorper id ligula non, tempus pellentesque massa.</p>
+      <p>Nullam egestas malesuada condimentum. Integer accumsan, lectus in fermentum eleifend, massa neque rutrum orci, sed rutrum lorem velit maximus diam. Integer sed ultricies arcu, elementum consequat nunc. Quisque orci massa, ultricies vel nisl at, laoreet rutrum erat. Aliquam at sem at risus feugiat malesuada. Pellentesque facilisis felis a lorem interdum, ac semper lacus consequat. Sed orci nisi, dapibus sed odio et, vulputate facilisis elit. Suspendisse ullamcorper mauris magna, quis blandit elit posuere gravida. Cras dignissim non est a molestie. Phasellus quis ex ante. Nullam magna tortor, vehicula sed bibendum a, cursus vitae tortor.</p>
+      <p>Duis aliquam a neque at eleifend. Proin posuere dui dui, molestie eleifend augue blandit at. Vestibulum finibus leo quis nisi dapibus malesuada. Nulla tincidunt leo in elementum eleifend. Praesent finibus nulla eget purus pulvinar imperdiet. Maecenas lorem diam, scelerisque eget hendrerit eget, dignissim vitae enim. Morbi ultrices mollis tellus. Proin a feugiat tellus, sed pretium tortor. Aliquam sed augue tellus.</p>
+      <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean ac ligula tempus, semper augue sed, feugiat arcu. Donec aliquet nunc non ligula ultricies accumsan. Quisque id sem id ipsum viverra faucibus. Duis pharetra posuere metus. Donec posuere ipsum non volutpat sollicitudin. Nam efficitur sem sit amet lacus volutpat, id posuere massa cursus. Integer gravida lorem vitae vestibulum dictum.</p>
+    </section>
+
+    <div class="positioned">
+      <div class="small-box"></div>
+      <p>I'm positioned!</p>
+    </div>
+
+    <div class="inbetween"></div>
+  </body>
+</html>
