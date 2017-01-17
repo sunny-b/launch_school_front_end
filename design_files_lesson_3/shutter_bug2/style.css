@@ -1,0 +1,100 @@
+/************************
+General
+************************/
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font: normal 18px "Roboto Condensed", Helvetica, sans-serif;
+  background-image: linear-gradient(to bottom, #d2dbbd, #fcfff5);
+  background-repeat: no-repeat;
+  color: #3e606f;
+  width: 100%;
+}
+
+header, main, footer {
+  width: 960px;
+  margin: 0 auto;
+}
+
+/************************
+Header
+************************/
+
+header {
+  padding: 20px 20px 0 20px;
+  overflow: auto;
+}
+
+
+h1 {
+  background: transparent url("img/camera_logo_icon.png") 0 0 no-repeat;
+  padding: 45px 0 15px 115px;
+  font-size: 36px;
+  font-weight: normal;
+  color: #193441;
+  float: left;
+}
+
+nav {
+  float: right;
+  padding-top: 75px;
+}
+
+nav li {
+  display: inline-block;
+}
+
+a {
+  display: block;
+  padding: 10px 40px 14px;
+  color: #91aa9d;
+  text-decoration: none;
+  background-color: #fcfff5;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
+
+.active {
+  background-color: #91aa9d;
+  color: #fcfff5;
+}
+
+/************************
+Main Body
+************************/
+
+main {
+  padding: 30px;
+  background-color: #fff;
+  overflow: auto;
+  box-shadow: 0 5px 5px #bdbebd;
+}
+
+main h2 {
+  font-size: 32px;
+  padding: 45px 0 30px;
+  font-weight: normal;
+}
+
+.img-article {
+  float: right;
+  padding-left: 45px;
+}
+
+p {
+  line-height: 25px;
+  padding-bottom: 25px;
+}
+
+
+/************************
+Footer
+************************/
+
+footer {
+  padding-top: 15px;
+  font-size: 14px;
+}
