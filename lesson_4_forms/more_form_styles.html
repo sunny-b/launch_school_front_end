@@ -1,0 +1,207 @@
+<!doctype html>
+	<html lang="en-US">
+	  <head>
+	    <title>More Forms</title>
+	    <meta charset="UTF-8" />
+      <style>
+        form {
+          margin-bottom: 20px;
+        }
+
+        .styled-form {
+          box-sizing: border-box;
+          width: 90%%;
+          border: 1px solid black;
+          background-color: #ececec;
+          padding: 10px 30px;
+        }
+
+        .q1l {
+          display: block;
+          font-weight: bold;
+          padding-bottom: 10px;
+        }
+
+        .q1i {
+          box-sizing: border-box;
+          width:100%;
+          border: 1px solid black;
+          border-radius: 4px;
+          background-color: #fff;
+          height: 40px;
+          padding: 5px 8px;
+          margin-bottom: 20px;
+        }
+
+        .q2l {
+          display: inline-block;
+          font-weight: bold;
+          padding-right: 20px;
+          vertical-align: middle;
+        }
+
+        .q2i {
+          display: inline-block;
+          height: 40px;
+          border: 1px solid black;
+          border-radius: 4px;
+          width: 50%;
+          padding: 5px 8px;
+          box-sizing: border-box;
+          vertical-align: middle;
+          margin-bottom: 0;
+        }
+
+        .q4l {
+          display: inline-block;
+        }
+
+        dt {
+          margin: 0;
+          width: 15%;
+          display: inline-block;
+        }
+
+        dd {
+          margin: 0;
+          width: 85%;
+          display: inline-block;
+        }
+
+    /***************************************/
+
+        .styled-form {
+          box-sizing: border-box;
+          width: 90%%;
+          border: 1px solid black;
+          background-color: #ececec;
+          padding: 10px 30px;
+        }
+
+        dt {
+          font: normal 18px Helvetica, Arial, sans-serif;
+          padding-bottom: 10px;
+        }
+
+        dd {
+          width: 100%;
+        }
+
+        .special input {
+          box-sizing: border-box;
+          width:100%;
+          border: 1px solid black;
+          border-radius: 4px;
+          background-color: #fff;
+          height: 40px;
+          padding: 5px 8px;
+          margin-bottom: 20px;
+        }
+
+        .partial {
+          box-sizing: border-box;
+          display: inline-block;
+          padding-right: 20px;
+          margin: 0;
+        }
+
+        .city {
+          width: 50%;
+        }
+
+        .state {
+          width: 25%;
+        }
+
+        select {
+          width: 100%;
+          -webkit-appearance: none;
+          height: 40px;
+          padding: 0 8px;
+          background-color: white;
+          border: 1px solid black;
+        }
+
+        .zipcode {
+          width: 25%;
+          padding-right: 0;
+        }
+      </style>
+	  </head>
+	  <body>
+      <!-- QUESTION 1 -->
+      <form>
+        <div class="styled-form">
+          <label class="q1l" for="example">Example top to bottom layout</label>
+          <input class="q1i" type="text" name="example" id="example">
+        </div>
+      </form>
+
+      <!-- QUESTION 2 -->
+
+      <form>
+        <div class="styled-form">
+          <div>
+            <label class="q2l" for="hori">Example Horizontal layout</label>
+            <input class="q2i" type="text" name="hori" id="hori">
+          </div>
+
+          <!-- QUESTION 3 -->
+          <div>
+            <label class="q2l" for="name">Name</label>
+            <input class="q2i" type="text" name="name" id="name">
+          </div>
+        </div>
+      </form>
+
+      <!-- QUESTION 4 -->
+
+      <form>
+        <div class="styled-form">
+          <dl>
+            <dt><label class="q1l q4l" for="name2">Name</label></dt><!--
+            --><dd><input class="q1i" type="text" name="name2" id="name2"></dd>
+
+            <dt><label class="q1l q4l" for="title">Title</label></dt><!--
+            --><dd><input class="q1i" type="text" name="title" id="title"></dd>
+          </dl>
+        </div>
+      </form>
+
+      <!-- QUESTION 5 -->
+      <form class="special">
+        <div class="styled-form">
+          <dl>
+            <dt><label for="name3">Name</label></dt>
+            <dd><input type="text" name="name3" id="name3"></dd>
+
+            <dt><label for="address1">Address</label></dt>
+            <dd>
+              <input type="text" name="address1" id="address1">
+              <input type="text" name="address2" id="address2">
+            </dd>
+          </dl>
+
+          <dl class="city partial">
+            <dt><label for="city">City</label></dt>
+            <dd><input type="text" name="city" id="city"></dd>
+          </dl><!--
+
+          --><dl class="state partial">
+            <dt><label for="state">State</label></dt>
+            <dd>
+              <select name="state" id="state">
+                <option value="ak">AK</option>
+                <option value="al">AL</option>
+              </select>
+            </dd>
+          </dl><!--
+
+          --><dl class="zipcode partial">
+            <dt><label for="zipcode">Name</label></dt>
+            <dd><input type="text" name="zipcode" id="zipcode"></dd>
+          </dl>
+        </div>
+      </form>
+    </body>
+	</html>
