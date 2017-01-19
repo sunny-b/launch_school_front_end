@@ -9,7 +9,7 @@ body {
   color: #45494d;
   font: normal 20px "Avenir", Helvetica, Arial, sans-serif;
   text-align: center;
-  padding-top: 135px;
+  padding-top: 100px;
 }
 
 /*
@@ -18,10 +18,19 @@ body {
   =======================
 */
 
-header h1 { padding-bottom: 115px; }
+header h1 { padding-bottom: 50px; }
+
+header h1 a {
+  width: 300px;
+  background: transparent url("images/logo.png") 0 0 no-repeat;
+  display: block;
+  text-indent: -9999px;
+  margin: 0 auto;
+  height: 245px;
+}
 
 header nav {
-  font-size: 26px;
+  font-size: 24px;
   text-transform: uppercase;
 }
 
@@ -54,7 +63,10 @@ main {
 
 article { padding-bottom: 100px; }
 
-article p { padding: 0 110px; }
+article p {
+  padding: 0 110px;
+  text-align: justify;
+}
 
 h2 {
   font-size: 36px;
@@ -72,7 +84,7 @@ h2:after {
 }
 
 .column {
-  width: 1000px;
+  max-width: 1000px;
   margin: 0 auto;
 }
 
@@ -143,3 +155,125 @@ footer .facebook { background-position: 0 33.3%; }
 footer .email { background-position: 0 66.6%; }
 
 footer .instagram { background-position: 0 100%; }
+
+@media (max-width: 768px) and (min-width: 481px) {
+  body {
+    padding-top: 70px;
+  }
+
+  header h1 {
+    padding-bottom: 30px;
+  }
+
+  header h1 a {
+    width: 223px;
+    height: 186px;
+    background-size: 223px;
+  }
+
+  main {
+    margin-top: 30px;
+    padding-top: 40px;
+  }
+
+  article {
+    padding: 50px 0;
+  }
+
+  article p {
+    padding: 0 38px;
+  }
+
+  footer {
+    padding: 55px 0 40px;
+  }
+
+  footer p {
+    padding-bottom: 60px;
+  }
+
+  footer li {
+    padding: 0 35px;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 16px;
+    padding: 0;
+  }
+
+  header {
+    padding: 15px 20px;
+  }
+
+  header h1 {
+    float: left;
+    padding: 0;
+    margin-top: 20px;
+  }
+
+  header nav {
+    text-align: right;
+    font-size: 16px;
+  }
+
+  header nav li {
+    padding: 5px 0;
+    display: block;
+  }
+
+  header h1 a {
+    text-indent: 0;
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    font-size: 22px;
+    height: 50px;
+    width: auto;
+    padding: 10px 0 0 55px;
+    background-position: -20px 1px;
+    background-size: 90px auto;
+    padding: 10px 0 0 55px;
+    margin-bottom: 30px;
+  }
+
+  main {
+    margin-top: 0;
+    padding-top: 65px;
+  }
+
+  main h2 {
+    font-size: 26px;
+    padding-bottom: 20px;
+  }
+
+  main h2:before,
+  main h2:after {
+    vertical-align: 0;
+  }
+
+  article {
+    padding-bottom: 70px;
+  }
+
+  article p {
+    padding: 0 40px;
+  }
+
+  h3 {
+    font-size: 22px;
+  }
+
+  footer {
+    padding: 30px 0 25px;
+  }
+
+  footer p {
+    padding-bottom: 55px;
+  }
+
+  footer li {
+    padding: 0 20px;
+  }
+}
