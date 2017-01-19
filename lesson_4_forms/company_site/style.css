@@ -48,7 +48,7 @@ ul {
   margin: 0;
 }
 
-li {
+header li {
   display: inline-block;
   padding: 0 42px;
 }
@@ -113,6 +113,32 @@ figure img {
 h3 + p {
   padding: 0 110px 100px 110px;
   line-height: 26px;
+}
+
+/*
+  =======================
+  Main | TEAM
+  =======================
+*/
+
+#team p {
+  padding: 0 110px 100px 110px;
+}
+
+#team {
+  padding-bottom: 240px;
+}
+
+.teamlist h3 {
+  font-size: 24px;
+  font-weight: normal;
+  margin-top: 13px;
+  margin-bottom: 0;
+}
+
+.teamlist li {
+  display: inline-block;
+  padding: 0 30px;
 }
 
 /*
