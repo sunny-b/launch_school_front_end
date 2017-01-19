@@ -66,7 +66,7 @@ a {
 
 /*
   =======================
-  Main
+  Main | HOME
   =======================
 */
 
@@ -78,10 +78,13 @@ main {
   min-width: 1000px;
 }
 
-article {
-  padding-bottom: 80px;
+.column {
+  width: 1000px;
   margin: 0 auto;
-  width: 770px;
+}
+
+article {
+  padding: 0 110px 100px 110px;
 }
 
 h2 {
@@ -91,6 +94,25 @@ h2 {
 h3 {
   font-size: 24px;
   color: #3e59b2;
+}
+
+/*
+  =======================
+  Main | PROJECTS
+  =======================
+*/
+
+figure {
+  margin: 0;
+}
+
+figure img {
+  width: 940px;
+}
+
+h3 + p {
+  padding: 0 110px 100px 110px;
+  line-height: 26px;
 }
 
 /*
