@@ -56,12 +56,6 @@ article { padding-bottom: 100px; }
 
 article p { padding: 0 110px; }
 
-#projects figure {
-  padding-bottom: 55px;
-}
-
-#projects img { display: block; }
-
 h2 {
   font-size: 36px;
   padding-bottom: 40px;
@@ -86,6 +80,33 @@ h3 {
   padding-bottom: 15px;
   font-size: 24px;
   color: #3e59b2;
+}
+
+#projects figure { padding-bottom: 55px; }
+
+#projects img { display: block; }
+
+#team p {
+  padding: 0 120px 120px 120px;
+}
+
+#team ul { padding-bottom: 215px; }
+
+#team li {
+  display: inline-block;
+  list-style-type: none;
+  padding: 0 30px;
+}
+
+#team li a {
+  text-decoration: none;
+  color: #3e59b2;
+  font-size: 24px;
+}
+
+#team img {
+  display: block;
+  margin-bottom: 30px;
 }
 
 /*
