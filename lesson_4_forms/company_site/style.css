@@ -1,0 +1,143 @@
+/*
+  =======================
+  General
+  =======================
+*/
+
+body {
+  background: #2f2840 url("images/bg_body.gif");
+  color: #45494d;
+  font: normal 20px Helvetica, Arial, sans-serif;
+  padding: 75px 0 0;
+  margin: 0;
+}
+
+p {
+  line-height: 34px;
+  margin: 0;
+}
+
+header, main, footer {
+  width: 100%;
+}
+
+/*
+  =======================
+  Header
+  =======================
+*/
+
+header img {
+  display: block;
+  margin: 0 auto;
+  padding-bottom: 112px;
+}
+
+h1 {
+  margin: 0;
+}
+
+nav {
+  padding-bottom: 60px;
+  text-align: center;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  display: inline-block;
+  padding: 0 42px;
+}
+
+a {
+  color: #cacaca;
+  text-decoration: none;
+  font-size: 26px;
+  text-transform: uppercase;
+}
+
+.active {
+  color: #6db9ff;
+}
+
+/*
+  =======================
+  Main
+  =======================
+*/
+
+main {
+  background-color: #fff;
+  text-align: center;
+  box-sizing: border-box;
+  padding-top: 75px;
+  min-width: 1000px;
+}
+
+article {
+  padding-bottom: 80px;
+  margin: 0 auto;
+  width: 770px;
+}
+
+h2 {
+  font-size: 36px;
+}
+
+h3 {
+  font-size: 24px;
+  color: #3e59b2;
+}
+
+/*
+  =======================
+  Footer
+  =======================
+*/
+
+footer {
+  background-color: #e7e7e7;
+  text-align: center;
+  padding: 75px 0;
+}
+
+footer p {
+  text-align: center;
+  color: #b2b2b2;
+  margin-bottom: 40px;
+}
+
+footer ul {
+  margin: 0 auto;
+  padding: 0;
+}
+
+footer li {
+  display: inline-block;
+  list-style-type: none;
+  margin: 0 62px;
+}
+
+footer a:before {
+  content:'';
+  display: inline-block;
+  background: transparent url("images/icons_social-media.png") 0 0 no-repeat;
+  width: 46px;
+  height: 46px;
+}
+
+.facebook:before {
+  background-position: 0 33.3%;
+}
+
+.email:before {
+  background-position: 0 66.66%;
+}
+
+.instagram:before {
+  background-position: 0 100%;
+}
