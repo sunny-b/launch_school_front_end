@@ -96,7 +96,10 @@ h3 {
 
 #projects figure { padding-bottom: 55px; }
 
-#projects img { display: block; }
+#projects img {
+  display: block;
+  max-width: 100%;
+}
 
 #team p {
   padding: 0 120px 120px 120px;
@@ -156,9 +159,20 @@ footer .email { background-position: 0 66.6%; }
 
 footer .instagram { background-position: 0 100%; }
 
-@media (max-width: 768px) and (min-width: 481px) {
+@media (max-width: 875px) {
+  #team li {
+    width: 50%;
+    padding: 0 0 30px 0;
+  }
+
+  #team li img {
+    margin: 0 auto 25px auto;
+  }
+}
+
+@media (max-width: 768px) {
   body {
-    padding-top: 70px;
+    padding-top: 65px;
   }
 
   header h1 {
@@ -166,114 +180,29 @@ footer .instagram { background-position: 0 100%; }
   }
 
   header h1 a {
+    height: 182px;
     width: 223px;
-    height: 186px;
     background-size: 223px;
   }
 
   main {
-    margin-top: 30px;
-    padding-top: 40px;
-  }
-
-  article {
-    padding: 50px 0;
-  }
-
-  article p {
-    padding: 0 38px;
-  }
-
-  footer {
-    padding: 55px 0 40px;
-  }
-
-  footer p {
-    padding-bottom: 60px;
-  }
-
-  footer li {
-    padding: 0 35px;
-  }
-}
-
-@media (max-width: 480px) {
-  body {
-    font-size: 16px;
-    padding: 0;
-  }
-
-  header {
-    padding: 15px 20px;
-  }
-
-  header h1 {
-    float: left;
-    padding: 0;
     margin-top: 20px;
-  }
-
-  header nav {
-    text-align: right;
-    font-size: 16px;
-  }
-
-  header nav li {
-    padding: 5px 0;
-    display: block;
-  }
-
-  header h1 a {
-    text-indent: 0;
-    text-decoration: none;
-    color: #fff;
-    font-weight: bold;
-    font-size: 22px;
-    height: 50px;
-    width: auto;
-    padding: 10px 0 0 55px;
-    background-position: -20px 1px;
-    background-size: 90px auto;
-    padding: 10px 0 0 55px;
-    margin-bottom: 30px;
-  }
-
-  main {
-    margin-top: 0;
-    padding-top: 65px;
-  }
-
-  main h2 {
-    font-size: 26px;
-    padding-bottom: 20px;
-  }
-
-  main h2:before,
-  main h2:after {
-    vertical-align: 0;
+    padding-top: 70px;
   }
 
   article {
-    padding-bottom: 70px;
+    padding-bottom: 50px;
   }
 
   article p {
     padding: 0 40px;
   }
 
-  h3 {
-    font-size: 22px;
-  }
-
   footer {
-    padding: 30px 0 25px;
-  }
-
-  footer p {
-    padding-bottom: 55px;
+    padding: 35px 0;
   }
 
   footer li {
-    padding: 0 20px;
+    padding: 0 32px;
   }
 }
