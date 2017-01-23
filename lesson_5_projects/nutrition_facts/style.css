@@ -1,0 +1,154 @@
+/******************
+General
+******************/
+
+html {
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+body {
+  width: 680px;
+  border: 2px solid #000;
+  font: normal 26px Helvetica, Arial, sans-serif;
+  box-sizing: border-box;
+  padding: 15px 20px;
+}
+
+
+/******************
+Table
+*******************/
+
+table {
+  width: 100%;
+  border-spacing: 0;
+}
+
+/******************
+Header
+******************/
+
+header h1 {
+  font-size: 55px;
+  font-weight: bold;
+}
+
+header p:last-child {
+  padding-bottom: 10px;
+}
+
+header:after, main tbody:nth-child(2):after {
+  content: '';
+  width: 100%;
+  height: 30px;
+  background-color: #000;
+  display: block;
+}
+
+/******************
+Main Table
+******************/
+
+main tr {
+  border-bottom: 1px solid #000;
+  width: 100%;
+  display: inline-block;
+}
+
+main thead tr:last-child,
+main tbody:nth-child(2) tr:last-child,
+main tfoot tr {
+  border-bottom: none;
+}
+
+main th, main td {
+  font-size: 26px;
+}
+
+main th, main strong {
+  font-weight: 600;
+}
+
+main span {
+  font-style: italic;
+}
+
+main th {
+  padding: 5px 0;
+}
+
+main td {
+  display: inline-block;
+}
+
+main td + td, tbody > tr > th {
+  text-align: right;
+  float: right;
+}
+
+main section:nth-child(2) th {
+  float: right;
+}
+
+
+/******************
+Table Subsection
+******************/
+
+.sub-section {
+  margin-left: 20px;
+  width: calc(100% - 20px)
+}
+
+
+/******************
+Main
+******************/
+
+main thead:after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 15px;
+  background-color: black;
+}
+
+main tfoot {
+  display:block;
+  padding: 15px 0 15px 1.1rem;
+}
+
+main tfoot td {
+  text-indent: -1.1rem;
+
+}
+
+/******************
+Footer
+******************/
+
+footer {
+  font-size: 20px;
+}
+
+footer thead td {
+  border-bottom: 1px solid #000;
+  text-align: left;
+}
+
+footer td {
+  padding: 2px 0;
+}
+
+footer .sub-section td:first-child {
+  text-indent: 20px;
+}
+
+footer tr td:first-child {
+  width: 40%;
+}
+
+footer tr td + td {
+  width: 20%;
+}
