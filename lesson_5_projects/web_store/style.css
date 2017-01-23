@@ -1,0 +1,150 @@
+/*****************
+Colors
+*****************/
+
+body {
+  background-color: #ffd505;
+  font: normal 16px Helvetica, Arial, sans-serif;
+  padding-bottom: 40px;
+}
+
+header {
+  background-color: #047ec1;
+}
+
+main {
+  background-color: #edebec;
+}
+
+
+/*****************
+Box-sizing
+*****************/
+
+header, main {
+  width: 900px;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+
+
+/*****************
+Header
+*****************/
+
+header {
+  height: 105px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  padding: 35px 0 35px 30px;
+  margin-bottom: 30px;
+}
+
+header h1 {
+  font-size: 30px;
+  color: #fff;
+}
+
+
+/*****************
+Main
+*****************/
+
+main {
+  padding: 30px 25px 40px 25px;
+}
+
+main h2 {
+  font-size: 24px;
+  color: #000;
+  padding-bottom: 25px;
+  overflow: auto;
+}
+
+
+/*****************
+Clearfix
+*****************/
+
+.gallery:after {
+  content: "";
+  width: 100%;
+  display: block;
+  clear: both;
+}
+
+
+/*****************
+Gallery
+*****************/
+
+.gallery {
+  width: 100%;
+  overflow: auto;
+}
+
+.gallery li {
+  display: block;
+  background-color: #fff;
+  width: 200px;
+  height: 235px;
+  box-sizing: border-box;
+  float: left;
+  padding: 15px;
+  margin: 8px;
+}
+
+.gallery li:nth-of-type(4n+1) {
+  margin-left: 0;
+}
+
+.gallery li:nth-child(4) {
+  margin-right: 0;
+}
+
+.gallery li img {
+  width: auto;
+  height: 150px;
+  display: block;
+  margin: 0 auto 15px;
+}
+
+.gallery h3 {
+  padding-bottom: 5px;
+}
+
+/*****************
+Checkbox
+*****************/
+
+input[type="checkbox"] {
+  display: none;
+}
+
+input:checked + figure img {
+  position: absolute;
+  left: calc(50% - 200px);
+  top: 100px;
+  width: 400px;
+  height: auto;
+  z-index: 2;
+  background-color: rgba(255, 0, 0, 0.5);
+  margin: 0;
+}
+
+input:checked + figure {
+  height: 165px;
+  width: 150px;
+}
+
+input:checked + figure:before {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  content: "";
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
