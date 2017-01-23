@@ -38,6 +38,11 @@ header p:last-child {
   padding-bottom: 10px;
 }
 
+
+/******************
+Thick Border
+******************/
+
 header:after, main tbody:nth-child(2):after {
   content: '';
   width: 100%;
@@ -45,6 +50,15 @@ header:after, main tbody:nth-child(2):after {
   background-color: #000;
   display: block;
 }
+
+main thead:after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 15px;
+  background-color: black;
+}
+
 
 /******************
 Main Table
@@ -66,34 +80,31 @@ main th, main td {
   font-size: 26px;
 }
 
-main th, main strong {
-  font-weight: 600;
-}
+main th, strong { font-weight: 600; }
 
-main span {
-  font-style: italic;
-}
+main span { font-style: italic; }
 
-main th {
-  padding: 5px 0;
-}
+main th { padding: 5px 0; }
 
-main td {
-  display: inline-block;
-}
+main td { display: inline-block; }
 
 main td + td, tbody > tr > th {
   text-align: right;
   float: right;
 }
 
-main section:nth-child(2) th {
-  float: right;
+main section:nth-child(2) th { float: right; }
+
+main tfoot {
+  display:block;
+  padding: 15px 0 15px 1.1rem;
 }
+
+main tfoot td { text-indent: -1.1rem; }
 
 
 /******************
-Table Subsection
+Main Table Subsection Indent
 ******************/
 
 .sub-section {
@@ -101,28 +112,6 @@ Table Subsection
   width: calc(100% - 20px)
 }
 
-
-/******************
-Main
-******************/
-
-main thead:after {
-  content: "";
-  display: block;
-  width: 100%;
-  height: 15px;
-  background-color: black;
-}
-
-main tfoot {
-  display:block;
-  padding: 15px 0 15px 1.1rem;
-}
-
-main tfoot td {
-  text-indent: -1.1rem;
-
-}
 
 /******************
 Footer
