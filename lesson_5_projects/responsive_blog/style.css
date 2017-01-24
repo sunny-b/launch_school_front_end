@@ -1,0 +1,219 @@
+/***********
+Typography
+***********/
+
+body {
+  font: normal 20px Helvetica, Arial, sans-serif;
+  color: #45494d;
+}
+
+h1 {
+  min-width: 210px;
+  font-size: 48px;
+  letter-spacing: 20px;
+  font-weight: normal;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: 36px;
+}
+
+h3 {
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+/***********
+Colors
+***********/
+
+header {
+  background-color: #3d3d3d;
+  color: #fff;
+}
+
+
+/***********
+Links
+***********/
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+
+/***********
+Logo
+***********/
+
+header {
+  padding: 45px 0 10px;
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+header h1 {
+  padding-bottom: 30px;
+}
+
+.logo {
+  width: 100%;
+  display: block;
+  margin: 0 auto;
+  padding: 0 20px 50px 20px;
+  box-sizing: border-box;
+}
+
+.logo img {
+  width: 100%;
+}
+
+
+/***********
+Nav Bar
+***********/
+
+header ul {
+  font-size: 0;
+}
+
+header li {
+  display: inline-block;
+  width: 50%;
+  text-align: center;
+  font-size: 20px;
+  padding-bottom: 20px;
+}
+
+header li:last-child {
+  padding-bottom: 0;
+}
+
+header a {
+  text-transform: uppercase;
+  color: #fff;
+  text-decoration: none;
+}
+
+header a:hover {
+  color: #f5dc39;
+}
+
+.selected {
+  color: #50c3af;
+}
+
+
+/***********
+Main
+***********/
+
+main {
+  width: 100%;
+  padding: 0 25px;
+  box-sizing: border-box;
+}
+
+h2 {
+  font-size: 24px;
+  padding-bottom: 20px;
+}
+
+h2 a {
+  color: #3d3d3d;
+  text-decoration: none;
+}
+
+h2 a:hover {
+  color: #50c3af;
+}
+
+main p {
+  text-align: justify;
+  padding-bottom: 20px;
+  line-height: 30px;
+}
+
+main p a {
+  color: #50c3af;
+  text-decoration: none;
+}
+
+section {
+  padding-bottom: 55px;
+}
+
+
+/***********
+Buttons
+***********/
+
+.buttons a {
+  padding: 5px 25px;
+  border-radius: 18px;
+  border: none;
+  font-size: 14px;
+  color: #fff;
+  background-color: #d2d5da;
+  margin-right: 25px;
+  text-decoration: none;
+}
+
+.buttons a + a {
+  background-color: #50c3af;
+}
+
+.buttons {
+  padding-bottom: 50px;
+}
+
+
+/***********
+Aside
+***********/
+
+aside section {
+  background-color: #f6f7f8;
+  width: 100%;
+  padding: 20px 0 20px 20px;
+  box-sizing: border-box;
+  margin-bottom: 30px;
+}
+
+aside h3 {
+  padding-bottom: 30px;
+}
+
+aside a, aside p {
+  font-size: 14px;
+  color: #787b80;
+}
+
+aside a {
+  background: transparent url("assets/blt_ul.png") 0 0 no-repeat;
+  padding-left: 20px;
+}
+
+aside a:hover {
+  color: #50c3af;
+}
+
+aside p {
+  line-height: 21px;
+  padding-bottom: 0;
+}
+
+
+/***********
+Footer
+***********/
+
+footer {
+  border-top: 1px solid #7e8287;
+  font-size: 12px;
+  padding: 15px 0 30px;
+  color: #7e8287;
+  margin-top: 110px;
+}
