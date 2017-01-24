@@ -285,7 +285,7 @@ Comment Page
 /*******************************************/
 
 
-@media (max-width: 600px) and (min-width: 481px) {
+@media (min-width: 481px) {
 
   /***********
   Logo
@@ -344,6 +344,90 @@ Comment Page
 /*******************************************/
 
 
-@media (max-width: 768px) and (min-width: 601px) {
+@media (min-width: 601px) {
 
+  /***********
+  Main
+  ***********/
+
+  main {
+    padding: 0;
+    overflow: hidden;
+  }
+
+  article {
+    width: 76.6%;
+    box-sizing: border-box;
+    padding-right: 65px;
+    float: left;
+  }
+
+  /***********
+  Aside
+  ***********/
+
+  aside {
+    float:left;
+    width: 23.4%;
+    margin: 0;
+  }
+
+  aside section {
+    margin: 0;
+    width: 100%;
+    height: auto;
+    padding-top: 45px;
+    padding-bottom: 45px;
+  }
+
+  aside .about {
+    padding-left: 40px;
+  }
+
+  /***********
+  Footer
+  ***********/
+
+  footer {
+    margin-top: 50px;
+  }
+}
+
+/*******************************************/
+
+
+@media (min-width: 769px) {
+
+  /***********
+  Header/Logo
+  ***********/
+
+  header {
+    padding-top: 135px;
+    padding-bottom: 45px;
+  }
+
+  header h1 {
+    font-size: 68px;
+  }
+/*
+  765px;
+  235px;*/
+
+  /***********
+  Main
+  ***********/
+
+  h2 {
+    font-size: 36px;
+  }
+
+  main, footer {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  aside .about {
+    padding-top: 60px;
+  }
 }
