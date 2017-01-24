@@ -1,7 +1,7 @@
 <!doctype html>
 	<html lang="en-US">
 	  <head>
-	    <title>Blog | Home</title>
+	    <title>Blog | Post</title>
 	    <meta charset="UTF-8" />
       <link rel="stylesheet" href="reset.css">
       <link rel="stylesheet" href="style.css">
@@ -16,8 +16,8 @@
 
         <nav>
           <ul>
-            <li><a href="#" class="selected">Home</a></li>
-            <li><a href="#">Html</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#" class="selected">Html</a></li>
             <li><a href="#">Css</a></li>
             <li><a href="#">Javascript</a></li>
             <li><a href="#">About</a></li>
@@ -25,24 +25,43 @@
         </nav>
       </header>
 
-      <main id="index">
+      <main id="blog-page">
         <article>
           <section>
-            <h2><a href="blog.html">Post Headline</a></h2>
+            <h2><a href="#">Post Headline</a></h2>
             <p>Written by <a href="#">Shane Riley</a> on Feb. 15, 2014</p>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut alquip ex ea commodo consequat. Duis aute irure dolor in rprehenderit in voluptate velit esse culpa qui officia deserunt mollit.</p>
           </section>
 
           <section>
-            <h2><a href="blog.html">Post Headline</a></h2>
-            <p>Written by <a href="#">Shane Riley</a> on Feb. 15, 2014</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut alquip ex ea commodo consequat. Duis aute irure dolor in rprehenderit in voluptate velit esse culpa qui officia deserunt mollit.</p>
+            <h2>Comments</h2>
+            <img src="assets/kevin.png" alt="Kevin">
+            <p class="middle-text"><a href="#">Kevin</a> on Feb. 15, 2014</p>
+            <p class="comment-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+
+            <img src="assets/chris.png" alt="Chris">
+            <p class="middle-text"><a href="#">Chris</a> on Feb. 15, 2014</p>
+            <p class="comment-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
           </section>
 
-          <div class="buttons">
-            <a href="#">Prev</a>
-            <a href="#">Next</a>
-          </div>
+          <section>
+            <h2>Post Comment</h2>
+
+            <form action="#" method="post">
+              <dl>
+                <dt><label for="name">Your name</label></dt>
+                <dd><input type="text" name="name" id="name" placeholder="Enter your Name"></dd>
+
+                <dt><label for="email">Email address</label></dt>
+                <dd><input type="email" name="email" id="email" placeholder="Enter your Email Address"></dd>
+
+                <dt><label for="comment">Comment</label></dt>
+                <dd><textarea id="comment" col="50" row="10" placeholder="Enter your Comments"></textarea></dd>
+              </dl>
+
+              <input type="submit" value="Submit">
+            </form>
+          </section>
         </article>
 
         <aside>
