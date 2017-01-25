@@ -1,0 +1,88 @@
+body {
+  font: normal 20px Helvetica, Arial, sans-serif;
+}
+
+header {
+  background: transparent url("images/bg-init-blue.jpg") 0 0 no-repeat;
+  background-size: cover;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 15px 15px 100px;
+}
+
+nav {
+  overflow: hidden;
+  padding-bottom: 50px;
+}
+
+.burger {
+  background-color: #fff;
+  width: 28px;
+  height: 2px;
+  display: block;
+  position: relative;
+  top: 15px;
+}
+
+.burger:before,
+.burger:after {
+  content: "";
+  width: 28px;
+  background-color: #fff;
+  height: 2px;
+  display: block;
+  position: absolute;
+}
+
+.burger:before {
+  top: -10px;
+}
+
+.burger:after {
+  top: 10px;
+}
+
+.social {
+  float: right;
+}
+
+.social a {
+  width: 28px;
+  height: 28px;
+  display: inline-block;
+  text-indent: -9999px;
+}
+
+.social a + a {
+  margin-left: 30px;
+}
+
+.social .twitter {
+  background: transparent url("images/social.png") 0 0 no-repeat;
+  background-size: 56px;
+}
+
+.social .facebook {
+  background: transparent url("images/social.png") 100% 0 no-repeat;
+  background-size: 56px;
+}
+
+.logo {
+  width: 130px;
+  height: 130px;
+  margin: 0 auto;
+  background: transparent url("images/js_logo.png") 0 0 no-repeat;
+  padding-bottom: 25px;
+}
+
+header h1 {
+  font-size: 34px;
+  text-transform: uppercase;
+  text-align: center;
+  color: #F3DF49;
+}
+
+header h1 + h1 {
+  padding-top: 15px;
+  color: #fff;
+}

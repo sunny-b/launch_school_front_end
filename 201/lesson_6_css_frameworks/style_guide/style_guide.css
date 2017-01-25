@@ -1,0 +1,163 @@
+body {
+  font: normal 14px Helvetica, Arial, sans-serif;
+  background: #c0c0c0; }
+main {
+  padding: 20px 25px;
+  background: #ffffff;
+}
+ul.row li {
+  padding: 8px 15px;
+  text-align: center;
+  border-radius: 8px;
+  background: #ececec;
+  box-sizing: border-box;
+  float: left;
+}
+
+.demo_height {
+  height: 400px;
+  line-height: 400px;
+  text-align: center;
+  background: #ececec;
+  border-radius: 8px;
+  float: left;
+}
+
+
+/*******************
+Font Sizes
+*******************/
+
+h1 {
+  font-size: 2.5em;
+  margin: 0 0 25px 0;
+}
+
+h2 {
+  font-size: 2em;
+  margin: 0 0 25px 0;
+}
+
+h3 {
+  font-size: 1.5em;
+  margin: 0 0 20px 0;
+}
+
+h4 {
+  font-size: 1em;
+  margin: 0 0 20px 0;
+}
+
+
+/*******************
+Copy
+*******************/
+
+.copy p {
+  margin: 0 0 20px 0;
+  font-size: 1em;
+  line-height: 150%;
+}
+
+.copy ul {
+  padding: 0 0 20px 25px;
+  list-style-type: disc;
+}
+
+.copy ul ul {
+  padding: 20px 0 20px 18px;
+  list-style-type: circle;
+}
+
+.copy ol {
+  padding: 0 0 20px 25px;
+  list-style-type: decimal;
+}
+
+.copy ol ol {
+  padding: 20px 0 20px 18px;
+  list-style: lower-latin;
+}
+
+.copy ol.roman {
+  list-style: upper-roman;
+}
+
+.copy ol.roman ol {
+  list-style: lower-roman;
+}
+
+
+/*******************
+Row
+*******************/
+
+.row {
+  max-width: 1200px;
+  margin: 0 auto 20px;
+  list-style-type: none;
+  overflow: auto;
+}
+
+.row ul {
+  padding: 0;
+  overflow: hidden;
+}
+
+.row .sixth {
+  float: left;
+  width: 16.6%;
+
+}
+
+.row .fourth {
+  float: left;
+  width: 25%;
+  box-sizing: border-box;
+}
+
+.row .third {
+  width: 33.3%;
+}
+
+.row .half {
+  width: 50%;
+}
+
+
+/*******************
+Margin Row
+*******************/
+
+.margin_row li + li, .margin_row div + div {
+  margin-left: 2%;
+}
+
+.margin_row .sixth {
+  width: 15%;
+}
+
+.margin_row .fourth {
+  width: 23.5%;
+}
+
+.margin_row .third {
+  width: 32%;
+}
+
+.margin_row .half {
+  width: 49%;
+}
+
+
+/*******************
+Uneven
+*******************/
+
+.margin_row .two_third {
+  width: 66%;
+}
+
+.margin_row .five_sixth {
+  width: 83%;
+}
