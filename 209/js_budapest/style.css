@@ -1,5 +1,5 @@
 body {
-  font: normal 20px Helvetica, Arial, sans-serif;
+  font: normal 20px/150% "Source Sans Pro", Helvetica, Arial, sans-serif;
 }
 
 header {
@@ -13,6 +13,10 @@ header {
 nav {
   overflow: hidden;
   padding-bottom: 50px;
+}
+
+strong {
+  font-weight: bold;
 }
 
 .burger {
@@ -62,6 +66,10 @@ nav {
   background-size: 56px;
 }
 
+.social .twitter:hover, .social .facebook:hover {
+  background-color: rgba(0, 0, 0, 0.2)
+}
+
 .social .facebook {
   background: transparent url("images/social.png") 100% 0 no-repeat;
   background-size: 56px;
@@ -76,13 +84,94 @@ nav {
 }
 
 header h1 {
-  font-size: 34px;
+  font-size: 36px;
+  line-height: 40px;
   text-transform: uppercase;
   text-align: center;
   color: #F3DF49;
 }
 
 header h1 + h1 {
-  padding-top: 15px;
+  padding-top: 10px;
   color: #fff;
+}
+
+
+/**********************
+Main
+**********************/
+
+main {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 75px 15px 0;
+}
+
+.description p {
+  text-align: center;
+  padding-bottom: 105px;
+  font-weight: 300;
+}
+
+main h2 {
+  color: #3580C2;
+  font-size: 26px;
+  font-weight: normal;
+  text-transform: uppercase;
+  text-align: center;
+  padding-bottom: 50px;
+}
+
+.vip li {
+  overflow: hidden;
+  padding-bottom: 40px;
+}
+
+.vip figure {
+  width: 120px;
+  height: 120px;
+  float: left;
+  padding-right: 15px;
+}
+
+.vip figure img {
+  width: 100%;
+  border-radius: 0 15px;
+}
+
+.vip a {
+  text-decoration: none;
+}
+
+.vip .name {
+  color: #3580C2;
+  text-transform: uppercase;
+  font-size: 20px;
+}
+
+.vip .name h3 {
+  font-weight: normal;
+}
+
+.vip .name:hover h3 {
+  text-decoration: underline;
+}
+
+.vip .speaker-twitter {
+  color: #ABABAB;
+  font-weight: 100;
+  display: block;
+}
+
+.vip .speaker-topic {
+  color: #DB3127;
+  font-weight: bold;
+  font-size: 15px;
+  display: block;
+  line-height: 21px;
+  width: 280px;
+}
+
+.vip .speaker-topic:hover {
+  text-decoration: underline;
 }
