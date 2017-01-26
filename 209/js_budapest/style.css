@@ -107,6 +107,73 @@ header h1 + h1 {
 
 
 /**********************
+Section Header
+**********************/
+
+.section_header span {
+  height: 84px;
+  width: 84px;
+  display: block;
+  top: 50%;
+  margin-top: -62px;
+  position: absolute;
+}
+
+.section_header .left {
+  left: 0;
+}
+
+.section_header .right {
+  right: 0;
+}
+
+.section_header .left:before,
+.section_header .left:after,
+.section_header .right:before,
+.section_header .right:after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
+
+.section_header .left:before {
+  top: 0;
+  left: 0;
+  border-width: 42px 0 42px 42px;
+  border-color: transparent transparent transparent #007bff;
+  opacity: .2;
+}
+
+.section_header .left:after {
+  border-width: 0 42px 42px 42px;
+  border-color: transparent transparent #007bff transparent;
+  opacity: .05;
+  bottom: 0;
+  left: 0;
+}
+
+.section_header .right:before {
+  top: 0;
+  left: 0;
+  border-width: 42px 42px 0 42px;
+  border-color: #3580C2 transparent transparent transparent;
+  opacity: .05;
+}
+
+.section_header .right:after {
+  border-width: 42px 42px 42px 0;
+  border-color: transparent #3580C2 transparent transparent;
+  opacity: .10;
+  bottom: 0;
+  right: 0;
+}
+
+
+
+/**********************
 Main
 **********************/
 
@@ -125,10 +192,11 @@ main {
 main h2 {
   color: #3580C2;
   font-size: 30px;
-  font-weight: bold;
+  font-weight: 600;
   text-transform: uppercase;
   text-align: center;
   padding-bottom: 50px;
+  position: relative;
 }
 
 .vip li {
@@ -282,7 +350,7 @@ article * {
   padding-bottom: 20px;
 }
 
-article p:last-child {
+.sponsors article p:last-child {
   padding-bottom: 0;
 }
 
@@ -295,7 +363,107 @@ article a:hover {
   text-decoration: underline;
 }
 
+article p {
+  font-weight: 100;
+}
+
 
 /**********************
 News
 **********************/
+
+.news h3 {
+  color: #3580C2;
+  font-weight: 400;
+  padding-bottom: 5px;
+  font-size: 22px;
+}
+
+.news h5 {
+  color: gray;
+  font-size: 0.7em;
+  font-weight: 100;
+  padding-top: 0;
+}
+
+.news p {
+  padding-bottom: 60px;
+  margin-bottom: 0;
+}
+
+.news {
+  padding-bottom: 75px;
+}
+
+
+/**********************
+Venue
+**********************/
+
+.venue article h2 {
+  text-transform: none;
+  text-align: left;
+}
+
+.venue figure {
+  width: 100%;
+  padding-bottom: 30px;
+}
+
+.venue figure img {
+  width: 100%;
+}
+
+.venue blockquote {
+  font-weight: 100;
+  font-style: italic;
+  padding-left: 40px;
+  border-left: 5px solid #3580C2;
+  padding-bottom: 0;
+}
+
+.venue cite {
+  font-size: 0.7em;
+  text-align: right;
+  display: block;
+  padding: 0;
+  margin: 0;
+}
+
+
+/**********************
+Footer
+**********************/
+
+small {
+  text-align: center;
+  font-size: 12px;
+  font-weight: 100;
+  display: block;
+}
+
+footer a {
+  text-decoration: none;
+  color: #3580C2;
+  font-size: 12px;
+}
+
+footer ul {
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  padding-bottom: 20px;
+  margin-top: -10px;
+}
+
+footer li {
+  display: inline-block;
+}
+
+footer li + li:before {
+  content: "|";
+  display: inline-block;
+  font-size: 12px;
+  padding-right: 5px;
+  font-weight: 100;
+}
