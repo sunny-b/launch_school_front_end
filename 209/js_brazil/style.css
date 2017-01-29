@@ -43,6 +43,7 @@ Tickets
 section {
   text-align: center;
   padding: 60px 0 70px;
+  border-bottom: 1px solid #efefef;
 }
 
 .tickets {
@@ -70,12 +71,13 @@ section h1 {
   text-decoration: none;
 }
 
-section {
-  border-bottom: 1px solid #efefef;
-}
-
 .tickets p:last-child {
   margin-top: 20px;
+}
+
+.section {
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 
@@ -254,13 +256,8 @@ Sponsors
   text-align: left;
 }
 
-.sponsors figure {
-  width: 33%;
-  float: left;
-}
-
 .sponsors figure img {
-  width: 100%;
+  float: left;
 }
 
 
@@ -303,11 +300,6 @@ footer h2 {
 .footer_overlay p {
   font-weight: 100;
   margin-bottom: 20px;
-}
-
-@media (min-width: 588px) {
-
-
 }
 
 @media (min-width: 655px) {
