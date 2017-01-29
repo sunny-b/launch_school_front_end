@@ -1,0 +1,332 @@
+body {
+  font: normal 16px "Open Sans", sans-serif;
+  color: #444;
+}
+
+.banner {
+  background: transparent url("images/front.jpg") 50% 50% no-repeat;
+  width: 100%;
+  text-align: center;
+  padding: 90px 0 50px;
+  color: #fff;
+}
+
+.banner img {
+  display: block;
+  margin: 0 auto;
+}
+
+.banner h1 {
+  font-size: 40px;
+}
+
+.banner h2 {
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+a {
+  color: #008000;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+
+/************************
+Tickets
+************************/
+
+section {
+  text-align: center;
+  padding: 60px 0 70px;
+}
+
+.tickets {
+  font-weight: 300;
+}
+
+section h1 {
+  font-size: 48px;
+  font-weight: 300;
+  padding-bottom: 30px;
+}
+
+.button {
+  color: #fff !important;
+  background-color: #008000;
+  font-weight: 600;
+  padding: 10px 30px;
+  text-decoration: none;
+  box-sizing: border-box;
+  margin: 15px auto 0;
+}
+
+.button:hover {
+  background-color: #006000;
+  text-decoration: none;
+}
+
+section {
+  border-bottom: 1px solid #efefef;
+}
+
+.tickets p:last-child {
+  margin-top: 20px;
+}
+
+
+/************************
+Speakers
+************************/
+
+.speakers {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.speaker {
+  width: 280px;
+  margin: 5px;
+  border: 1px solid #efefef;
+  position: relative;
+  height: 380px;
+  text-align: center;
+  box-sizing: border-box;
+  display: inline-block;
+}
+
+.speaker a {
+  color: #008000;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.speaker a:hover {
+  text-decoration: underline;
+}
+
+.speaker .overlay {
+  background-color: rgba(0, 0, 0, 0.9);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 100;
+  line-height: 130%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  padding: 30px 25px 0 25px;
+  opacity: 0;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.speaker .overlay p {
+  margin-bottom: 10px;
+}
+
+.speaker:hover .overlay {
+  opacity: 1;
+}
+
+.info img {
+  padding-bottom: 40px;
+}
+
+.speaker h2 {
+  color: #008000;
+  font-size: 24px;
+  font-weight: bold;
+  padding-bottom: 10px;
+}
+
+.info p {
+  font-weight: 100;
+  padding-bottom: 50px;
+}
+
+
+
+/************************
+Schedule
+************************/
+
+.schedule table {
+  text-align: left;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.schedule table h3 {
+  font-size: 24px;
+  padding-bottom: 10px;
+  font-weight: 500;
+}
+.schedule table a {
+  color: #008000;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.schedule table a:hover {
+  text-decoration: underline;
+}
+
+.schedule tr {
+  position: relative;
+  display: block;
+}
+
+.schedule img {
+  width: 80px;
+}
+
+.schedule .table_photo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px 20px;
+}
+
+.schedule td {
+  display: block;
+  padding: 10px;
+}
+
+.schedule td:first-child {
+  text-align: right;
+  border-top: 1px solid #efefef;
+}
+
+.schedule tr:last-child td:last-child {
+  border-bottom: 1px solid #efefef;
+}
+
+
+/************************
+Papers
+************************/
+
+.papers {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.papers p {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+
+.papers a {
+  color: #008000;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.papers a:hover {
+  text-decoration: underline;
+}
+
+
+/************************
+Sponsors
+************************/
+
+.sponsors {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.level {
+  overflow: hidden;
+}
+
+.sponsors h4 {
+  font-size: 18px;
+  text-align: left;
+}
+
+.sponsors figure {
+  width: 33%;
+  float: left;
+}
+
+.sponsors figure img {
+  width: 100%;
+}
+
+
+/************************
+Footer
+************************/
+
+footer {
+  background: transparent url("images/people.jpg") 50% 50% no-repeat;
+  background-size: cover;
+  padding-bottom: 10px;
+}
+
+footer h2 {
+  text-align: center;
+  font-size: 35px;
+  font-weight: 300;
+  padding: 20px 0;
+  color: #fff;
+}
+
+.footer_overlay {
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 15px 10px 10px;
+}
+
+.footer_content {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.footer_overlay h3 {
+  font-size: 31px;
+  text-transform: uppercase;
+}
+
+.footer_overlay p {
+  font-weight: 100;
+  margin-bottom: 20px;
+}
+
+@media (min-width: 588px) {
+
+
+}
+
+@media (min-width: 655px) {
+  .schedule td {
+    display: table-cell;
+  }
+
+  .schedule .table_photo {
+    position: relative;
+  }
+
+  .schedule img {
+    width: 130px;
+    height: auto;
+    text-align: right;
+  }
+
+  .schedule tr {
+    position: static;
+    display: table-row;
+  }
+}

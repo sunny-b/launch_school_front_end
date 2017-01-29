@@ -1,0 +1,89 @@
+<!doctype html>
+	<html lang="en-US">
+	  <head>
+	    <title>Spacing</title>
+	    <meta charset="UTF-8" />
+      <style>
+      figure {
+        max-width: 800px;
+        margin: 0 auto;
+        min-width: 500px;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+
+      #first, #second {
+        width: 300px;
+        height: 300px;
+        box-sizing: border-box;
+        display: inline-block;
+      }
+
+      #first {
+        background-color: #ffcccc;
+        padding: 20px;
+        margin-right: 20px;
+      }
+
+      #second {
+        background-color: #ccccff;
+        border: 2px solid #000;
+      }
+
+      ul {
+        padding: 0;
+        list-style: none;
+        background: #a7ceff;
+      }
+
+      li {
+        min-height: 120px;
+        line-height: 120px;
+        text-align: center;
+        background: #ffffcc;
+        display: inline-block;
+        width: 23%;
+        margin: -10px 1%;
+      }
+
+      table {
+        background: #a7ceff;
+        width: 100%;
+        border-spacing: 10px;
+      }
+
+      td {
+        background: #ffffcc;
+        text-align: center;
+        width: 25%;
+      }
+      </style>
+	  </head>
+	  <body>
+      <figure>
+        <img src="images/hotel.jpg" alt="Hotel">
+      </figure>
+
+      <div id="first"></div>
+      <div id="second"></div>
+
+      <ul>
+        <li>Item 1</li><!--
+        --><li>Item 2</li><!--
+        --><li>Item 3</li><!--
+        --><li>Item 4</li>
+      </ul>
+
+      <table>
+        <tr>
+          <td>1</td>
+          <td>2</td>
+          <td>3</td>
+          <td>4</td>
+        </tr>
+      </table>
+    </body>
+	</html>
