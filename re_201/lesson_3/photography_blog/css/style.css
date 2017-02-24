@@ -1,0 +1,88 @@
+body {
+  background: linear-gradient(#d3dcc0, #fbfef4);
+  font: normal 18px/140% 'Roboto Condensed', sans-serif;
+}
+
+header {
+  overflow: hidden;
+  position: relative;
+}
+
+header h1 {
+  margin: 20px 0 15px 0;
+  font-size: 36px;
+  font-weight: normal;
+  color: #193441;
+  float: left;
+}
+
+header h1:before {
+  content: '';
+  display: inline-block;
+  margin-right: 5px;
+  height: 100px;
+  vertical-align: -20px;
+  width: 105px;
+  background: transparent url("../assets/logo.png") 0 0 no-repeat;
+}
+
+header nav {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+header nav li {
+  display: inline-block;
+}
+
+header nav a {
+  text-decoration: none;
+  color: #91aa9d;
+  background-color: #fcfff5;
+  padding: 10px 40px;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  display: inline-block;
+}
+
+header nav a.selected {
+  color: #fcfff5;
+  background-color: #91aa9d;
+}
+
+header, main, footer {
+  width: 900px;
+  margin: 0 auto;
+}
+
+main {
+  background-color: #fff;
+  color: #3e606f;
+  padding: 30px 30px 45px;
+  overflow: hidden;
+}
+
+main figure {
+  padding-bottom: 35px;
+}
+
+main h2 {
+  font-size: 32px;
+  padding-bottom: 30px;
+}
+
+main p {
+  padding-bottom: 25px;
+}
+
+main .aside {
+  float: right;
+  padding: 20px 0 0 40px;
+}
+
+footer {
+  padding: 15px 0 40px;
+  color: #3e606f;
+  font-size: 14px;
+}
