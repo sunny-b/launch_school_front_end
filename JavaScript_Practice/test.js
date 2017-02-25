@@ -1,13 +1,19 @@
-function myForEach(array, func) {
+function myOwnEvery(array, func) {
   for (var i = 0; i < array.length; i++) {
-    func(array[i])
+    if (!func(array[i])) {
+      return false;
+    }
   }
+
+  return true;
+}
+function areAllNumbers(array) {
+  // console.log(myOwnEvery(array, isANumber));
 }
 
-var min = Infinity;
-var getMin = function(value) {
-  min = value <= min ? value : min;
+var isANumber = function(value) {
+  return typeof value === 'number';
 };
 
-myForEach([4, 5, 12, 23, 3], getMin);     // undefined
-console.log(min);
+areAllNumbers([1, 5, 6, 7, '1']);             // false
+// areAllNumbers([1, 5, 6, 7, 1]);
