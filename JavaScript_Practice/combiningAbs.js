@@ -88,22 +88,60 @@
 
 
 // Anagrams
+//
+// function anagram(word, list) {
+//   function sortString(string) {
+//     return string.split('').sort().join('')
+//   }
+//
+//   function areAnagrams(word1, word2) {
+//     return sortString(word1) === sortString(word2);
+//   }
+//
+//   var anagrams = list.filter(function(list_word) {
+//     return areAnagrams(word, list_word);
+//   });
+//
+//   console.log(anagrams);
+// }
+//
+// anagram('listen', ['enlists', 'google', 'inlets', 'banana']);
+// anagram('listen', ['enlist', 'google', 'inlets', 'banana']);
 
-function anagram(word, list) {
-  function sortString(string) {
-    return string.split('').sort().join('')
+
+// Bands
+
+var bands = [
+  { name: 'sunset rubdown', country: 'UK', active: false },
+  { name: 'women', country: 'Germany', active: false },
+  { name: 'a silver mt. zion', country: 'Spain', active: true },
+];
+
+function processBands(data) {
+  function removePeriod(string) {
+    return string.replace(/\./g, '');
   }
 
-  function areAnagrams(word1, word2) {
-    return sortString(word1) === sortString(word2);
+  function capitalize(string) {
+    return string.split(' ').map(function(word) {
+      return word[0].toUpperCase() + word.slice(1);
+    }).join(' ');
   }
 
-  var anagrams = list.filter(function(list_word) {
-    return areAnagrams(word, list_word);
+  function format(bandName) {
+    var formattedName = removePeriod(bandName);
+    formattedName = capitalize(formattedName);
+
+    return formattedName;
+  }
+
+  return data.map(function(band) {
+    return {
+      name: format(band.name),
+      country: 'Canada',
+      active: band.active,
+    }
   });
-
-  console.log(anagrams);
 }
 
-anagram('listen', ['enlists', 'google', 'inlets', 'banana']);
-anagram('listen', ['enlist', 'google', 'inlets', 'banana']);
+var answer = processBands(bands);
