@@ -188,177 +188,274 @@ var studentScores = {
   },
 };
 
+// function generateClassRecordSummary(scores) {
+//   var EXAM_WEIGHT = 0.65;
+//   var EXERCISE_WEIGHT = 0.35;
+//
+//   function extractStudentData(scores, data) {
+//     Object.keys(scores).forEach(function(key) {
+//       var student = data['studentScores'][key];
+//       var studentScores = scores[key]['scores'];
+//
+//       student['examAvg'] = calcAvg(studentScores['exams']);
+//       student['exerciseTotal'] = calcTotal(studentScores['exercises']);
+//       populateFields(data['exams'], studentScores);
+//     });
+//   }
+//   function calcAvg(examScores) {
+//     var examTotal = calcTotal(examScores);
+//
+//     return Math.round((examTotal / examScores.length) * 100) / 100;
+//   }
+//   function calcTotal(exerciseScores) {
+//     var exerciseTotal = exerciseScores.reduce(function(acc, score) {
+//       return acc + score;
+//     });
+//
+//     return exerciseTotal;
+//   }
+//   function populateFields(exams, studentScores) {
+//     Object.keys(exams).forEach(function(exam, index) {
+//       exams[exam]['scores'].push(studentScores['exams'][index]);
+//     });
+//   }
+//
+//   function processStudentData(data) {
+//     calcExamAvgMinMax(data['exams']);
+//     calcGrade(data['studentScores']);
+//   }
+//   function calcExamAvgMinMax(exams) {
+//     Object.keys(exams).forEach(function(key) {
+//       var exam = exams[key];
+//
+//       exam['average'] = calcAvg(exam['scores']);
+//       exam['minimum'] = Math.min.apply(null, exam['scores']);
+//       exam['maximum'] = Math.max.apply(null, exam['scores']);
+//     });
+//   }
+//   function calcGrade(studentScores) {
+//     Object.keys(studentScores).forEach(function(key) {
+//       var student = studentScores[key];
+//
+//       student['finalScore'] = calcGradeScore(student);
+//       student['letterGrade'] = determineLetterGrade(student.finalScore);
+//     });
+//   }
+//   function calcGradeScore(student) {
+//     var weightedExam = student.examAvg * EXAM_WEIGHT;
+//     var weightedExercises = student.exerciseTotal * EXERCISE_WEIGHT;
+//     var total = weightedExam + weightedExercises;
+//
+//     return Math.round(total);
+//   }
+//   function determineLetterGrade(finalScore) {
+//     var letter;
+//     if (finalScore >= 93) {
+//       letter = ' (A)';
+//     } else if (finalScore >= 85) {
+//       letter = ' (B)';
+//     } else if (finalScore >= 77) {
+//       letter = ' (C)';
+//     } else if (finalScore >= 69) {
+//       letter = ' (D)';
+//     } else if (finalScore >= 60) {
+//       letter = ' (E)';
+//     } else {
+//       letter = ' (F)';
+//     }
+//
+//     return finalScore + letter;
+//   }
+//
+//   function renderSummary(data) {
+//     var summary = {
+//       studentGrades: [],
+//       exams: [],
+//     };
+//
+//     populateStudentGrades(data['studentScores'], summary['studentGrades']);
+//     populateExams(data['exams'], summary['exams']);
+//
+//     return summary;
+//   }
+//   function populateStudentGrades(studentScores, summary) {
+//     Object.keys(studentScores).forEach(function(key) {
+//       var student = studentScores[key];
+//
+//       summary.push(student.letterGrade);
+//     });
+//   }
+//   function populateExams(exams, summary) {
+//     Object.keys(exams).forEach(function(key) {
+//       var exam = exams[key];
+//
+//       summary.push({average: exam.average,
+//                     minimum: exam.minimum,
+//                     maximum: exam.maximum, });
+//     });
+//   }
+//
+//   var data = {
+//     exams: {
+//       exam1: {
+//         scores: [],
+//         average: null,
+//         minimum: null,
+//         maximum: null,
+//       },
+//       exam2: {
+//         scores: [],
+//         average: null,
+//         minimum: null,
+//         maximum: null,
+//       },
+//       exam3: {
+//         scores: [],
+//         average: null,
+//         minimum: null,
+//         maximum: null,
+//       },
+//       exam4: {
+//         scores: [],
+//         average: null,
+//         minimum: null,
+//         maximum: null,
+//       },
+//     },
+//
+//     studentScores: {
+//       student1: {
+//         examAvg: null,
+//         exerciseTotal: null,
+//         letterGrade: null,
+//       },
+//       student2: {
+//         examAvg: null,
+//         exerciseTotal: null,
+//         letterGrade: null,
+//       },
+//       student3: {
+//         examAvg: null,
+//         exerciseTotal: null,
+//         letterGrade: null,
+//       },
+//       student4: {
+//         examAvg: null,
+//         exerciseTotal: null,
+//         letterGrade: null,
+//       },
+//       student5: {
+//         examAvg: null,
+//         exerciseTotal: null,
+//         letterGrade: null,
+//       },
+//     },
+//   };
+//   var summary;
+//
+//   extractStudentData(scores, data);
+//   processStudentData(data);
+//   summary = renderSummary(data);
+//
+//   return summary;
+// };
+
 function generateClassRecordSummary(scores) {
+  // an array of score objects, with both exams and exercises
+  var scoreData = Object.keys(scores).map(function(student) {
+    return scores[student].scores;
+  });
+
+  // transform the above score objects to be an array of arrays for exam scores
+  var examData = scoreData.map(function(score) {
+    return score.exams;
+  });
+
+  return {
+    studentGrades: scoreData.map(function(scoreObj) {
+      return getStudentScore(scoreObj);
+    }),
+    exams: getExamSummary(examData),
+  }
+}
+
+function getStudentScore(scoreObj) {
+  var examAvg = calcAvg(scoreObj.exams);
+  var exerciseTotal = calcTotal(scoreObj.exercises);
+  var gradeScore = Math.round(calcGradeScore(examAvg, exerciseTotal));
+  var letterGrade = determineLetterGrade(gradeScore);
+
+  return letterGrade;
+}
+
+function calcAvg(examScores) {
+  var examTotal = calcTotal(examScores);
+
+  return Math.round((examTotal / examScores.length) * 100) / 100;
+}
+
+function calcTotal(exerciseScores) {
+  var exerciseTotal = exerciseScores.reduce(function(acc, score) {
+    return acc + score;
+  });
+
+  return exerciseTotal;
+}
+
+function calcGradeScore(examAvg, exerciseTotal) {
   var EXAM_WEIGHT = 0.65;
   var EXERCISE_WEIGHT = 0.35;
 
-  function extractStudentData(scores, data) {
-    Object.keys(scores).forEach(function(key) {
-      var student = data['studentScores'][key];
-      var studentScores = scores[key]['scores'];
+  var weightedExam = examAvg * EXAM_WEIGHT;
+  var weightedExercises = exerciseTotal * EXERCISE_WEIGHT;
+  var total = weightedExam + weightedExercises;
 
-      student['examAvg'] = calcAvg(studentScores['exams']);
-      student['exerciseTotal'] = calcTotal(studentScores['exercises']);
-      populateFields(data['exams'], studentScores);
-    });
-  }
-  function calcAvg(examScores) {
-    var examTotal = calcTotal(examScores);
+  return Math.round(total);
+}
 
-    return Math.round((examTotal / examScores.length) * 100) / 100;
-  }
-  function calcTotal(exerciseScores) {
-    var exerciseTotal = exerciseScores.reduce(function(acc, score) {
-      return acc + score;
-    });
+function determineLetterGrade(finalScore) {
+  var letter;
 
-    return exerciseTotal;
-  }
-  function populateFields(exams, studentScores) {
-    Object.keys(exams).forEach(function(exam, index) {
-      exams[exam]['scores'].push(studentScores['exams'][index]);
-    });
+  if (finalScore >= 93) {
+    letter = ' (A)';
+  } else if (finalScore >= 85) {
+    letter = ' (B)';
+  } else if (finalScore >= 77) {
+    letter = ' (C)';
+  } else if (finalScore >= 69) {
+    letter = ' (D)';
+  } else if (finalScore >= 60) {
+    letter = ' (E)';
+  } else {
+    letter = ' (F)';
   }
 
-  function processStudentData(data) {
-    calcExamAvgMinMax(data['exams']);
-    calcGrade(data['studentScores']);
-  }
-  function calcExamAvgMinMax(exams) {
-    Object.keys(exams).forEach(function(key) {
-      var exam = exams[key];
+  return finalScore + letter;
+}
 
-      exam['average'] = calcAvg(exam['scores']);
-      exam['minimum'] = Math.min.apply(null, exam['scores']);
-      exam['maximum'] = Math.max.apply(null, exam['scores']);
-    });
-  }
-  function calcGrade(studentScores) {
-    Object.keys(studentScores).forEach(function(key) {
-      var student = studentScores[key];
+function getExamSummary(examData) {
+  var scoresPerExam = transpose(examData);
 
-      student['finalScore'] = calcGradeScore(student);
-      student['letterGrade'] = determineLetterGrade(student.finalScore);
-    });
-  }
-  function calcGradeScore(student) {
-    var weightedExam = student.examAvg * EXAM_WEIGHT;
-    var weightedExercises = student.exerciseTotal * EXERCISE_WEIGHT;
-    var total = weightedExam + weightedExercises;
+  var examSummary = scoresPerExam.map(function(scores) {
+    var summary = {};
 
-    return Math.round(total);
-  }
-  function determineLetterGrade(finalScore) {
-    var letter;
-    if (finalScore >= 93) {
-      letter = ' (A)';
-    } else if (finalScore >= 85) {
-      letter = ' (B)';
-    } else if (finalScore >= 77) {
-      letter = ' (C)';
-    } else if (finalScore >= 69) {
-      letter = ' (D)';
-    } else if (finalScore >= 60) {
-      letter = ' (E)';
-    } else {
-      letter = ' (F)';
-    }
-
-    return finalScore + letter;
-  }
-
-  function renderSummary(data) {
-    var summary = {
-      studentGrades: [],
-      exams: [],
-    };
-
-    populateStudentGrades(data['studentScores'], summary['studentGrades']);
-    populateExams(data['exams'], summary['exams']);
+    summary['average'] = calcAvg(scores);
+    summary['minimum'] = Math.min.apply(null, scores);
+    summary['maximum'] = Math.max.apply(null, scores);
 
     return summary;
-  }
-  function populateStudentGrades(studentScores, summary) {
-    Object.keys(studentScores).forEach(function(key) {
-      var student = studentScores[key];
+  });
 
-      summary.push(student.letterGrade);
+  return examSummary;
+}
+
+function transpose(array) {
+  return array[0].map(function(col, columnIdx) {
+    return array.map(function(row) {
+      return row[columnIdx];
     });
-  }
-  function populateExams(exams, summary) {
-    Object.keys(exams).forEach(function(key) {
-      var exam = exams[key];
-
-      summary.push({average: exam.average,
-                    minimum: exam.minimum,
-                    maximum: exam.maximum, });
-    });
-  }
-
-  var data = {
-    exams: {
-      exam1: {
-        scores: [],
-        average: null,
-        minimum: null,
-        maximum: null,
-      },
-      exam2: {
-        scores: [],
-        average: null,
-        minimum: null,
-        maximum: null,
-      },
-      exam3: {
-        scores: [],
-        average: null,
-        minimum: null,
-        maximum: null,
-      },
-      exam4: {
-        scores: [],
-        average: null,
-        minimum: null,
-        maximum: null,
-      },
-    },
-
-    studentScores: {
-      student1: {
-        examAvg: null,
-        exerciseTotal: null,
-        letterGrade: null,
-      },
-      student2: {
-        examAvg: null,
-        exerciseTotal: null,
-        letterGrade: null,
-      },
-      student3: {
-        examAvg: null,
-        exerciseTotal: null,
-        letterGrade: null,
-      },
-      student4: {
-        examAvg: null,
-        exerciseTotal: null,
-        letterGrade: null,
-      },
-      student5: {
-        examAvg: null,
-        exerciseTotal: null,
-        letterGrade: null,
-      },
-    },
-  };
-  var summary;
-
-  extractStudentData(scores, data);
-  processStudentData(data);
-  summary = renderSummary(data);
-
-  return summary;
-};
+  });
+}
 
 var answer = generateClassRecordSummary(studentScores);
 
