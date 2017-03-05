@@ -1,19 +1,19 @@
 function compareVersions(version1, version2) {
-  if (isNotValidVersion(version1) || isNotValidVersion(version2)) {
+  if (!isValidVersion(version1) || !isValidVersion(version2)) {
     return null;
   }
 
-  function toInt(string) {
-    return Number(string);
-  }
-
-  var verArr1 = version1.split('.').map(toInt(num));
-  var verArr2 = version2.split('.').map(toInt(num));
+  var toInt = function(string) { return Number(string) };
+  var verArr1 = version1.split('.').map(toInt);
+  var verArr2 = version2.split('.').map(toInt);
   var counter = 0;
+  var returnVal;
 
-  while (true) {
-    if (isUndefined(verArr1, verArr2)) {
-      
+  while (counter < verArr1.length || counter < verArr2.length) {
+    if (endOf(verArr1[counter])) {
+      return (isGreater(verArr2, counter) ? -1 : 0);
+    } else if (endOf(verArr2[counter])) {
+      return (isGreater(verArr1, counter) ? 1 : 0);
     } else if (verArr1[counter] < verArr2[counter]) {
       return -1;
     } else if (verArr1[counter] > verArr2[counter]) {
@@ -27,19 +27,27 @@ function compareVersions(version1, version2) {
   return 0;
 }
 
-function isNotValidVersion(version1, version2) {
-  return !!version.match(/[^0-9.]/);
+function isValidVersion(version) {
+  return !!version.match(/^([0-9]+\.)*([0-9]+)$/);
+}
+function endOf(version) {
+  return version === undefined;
+}
+function sum(acc, val) {
+  return acc + val;
+}
+function isGreater(version, counter) {
+  return version.slice(counter).reduce(sum) !== 0
 }
 
-function isUndefined(num1, num2) {
-  return (num1 === undefined || num2 === undefined);
-}
 
-compareVersions('0.1', '1') === -1
-compareVersions('1.0', '1') === 0
-compareVersions('1.0', '1.1') === -1
-compareVersions('1.2', '1.1') === 1
-compareVersions('1.2', '1.2.0.0') === 0
-compareVersions('1.18.2', '1.2.0.0') === 1
-compareVersions('1.2', '13.37') === -1
-compareVersions('1.2', '13.37.a') === -1
+console.log(compareVersions('1', '1'));          // 0
+console.log(compareVersions('1.1', '1.0'));      // 1
+console.log(compareVersions('2.3.4', '2.3.5'));  // -1
+console.log(compareVersions('1.a', '1'));        // null
+console.log(compareVersions('.1', '1'));         // null
+console.log(compareVersions('1.', '2'));         // null
+console.log(compareVersions('1..0', '2.0'));     // null
+console.log(compareVersions('1.0', '1.0.0'));    // 0
+console.log(compareVersions('1.0.0', '1.1'));    // -1
+console.log(compareVersions('1.0', '1.0.5'));
