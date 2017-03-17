@@ -40,7 +40,9 @@ function processRange(range, array) {
 
   range.map(function(value, index) {
     if (index === 0) {
-      if (value > array[lastIndex])
+      while (value > array[lastIndex]) {
+
+      }
     } else {
 
     }
