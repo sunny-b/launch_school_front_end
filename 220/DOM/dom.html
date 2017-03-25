@@ -1,0 +1,57 @@
+<head>
+  <style>
+  .x {
+position: absolute;
+transform: rotate(45deg);
+top: 20px;
+left: 20px;
+}
+
+.x .horizontal {
+width: 45px;
+height: 5px;
+position: absolute;
+left: -20px;
+background: red;
+}
+
+.x .vertical {
+height: 45px;
+width: 5px;
+background: red;
+position: absolute;
+left: 0px;
+top: -20px;
+}
+  </style>
+
+  <script>
+    document.addEventListener('mousemove', function(event) {
+      var x = document.querySelector('.x');
+      x.style.top = event.clientY.toString() + 'px';
+      x.style.left = event.clientX.toString() + 'px';
+    });
+
+    document.addEventListener('keypress', function(event) {
+      var key = event.which;
+      var x = [ document.querySelector('.horizontal'),
+                document.querySelector('.vertical') ];
+
+      switch(key) {
+        case 98:
+          x.forEach(element => element.style.background = 'blue');
+          break;
+        case 103:
+          x.forEach(element => element.style.background = 'green');
+          break;
+        case 114:
+          x.forEach(element => element.style.background = 'red');
+          break;
+      }
+    });
+  </script>
+</head>
+<div class="x">
+  <div class="horizontal"></div>
+  <div class="vertical"></div>
+</div>

@@ -2278,8 +2278,548 @@ function triangle(s1, s2, s3) {
   }
 }
 
-var answer = triangle(3, 3, 3)   // equilateral
-var answer1 = triangle(3, 3, 1.5) // isosceles
-var answer2 = triangle(3, 4, 5)   // scalene
-var answer3 = triangle(0, 3, 3)   // invalid
-var answer4 = triangle(3, 1, 1)   // invalid
+// var answer = triangle(3, 3, 3)   // equilateral
+// var answer1 = triangle(3, 3, 1.5) // isosceles
+// var answer2 = triangle(3, 4, 5)   // scalene
+// var answer3 = triangle(0, 3, 3)   // invalid
+// var answer4 = triangle(3, 1, 1)   // invalid
+
+function triangle(a1, a2, a3) {
+  var sum = a1 + a2 + a3;
+  var angles = [a1, a2, a3].sort((a, b) => a - b);
+
+  if (sum !== 180 || angles[0] <= 0) {
+    return 'invalid';
+  } else if (angles.includes(90)) {
+    return 'right';
+  } else if (angles[2] > 90) {
+    return 'obtuse';
+  } else {
+    return 'acute';
+  }
+}
+
+// var answer = triangle(60, 70, 50)   // acute
+// var answer1 = triangle(30, 90, 60)   // right
+// var answer2 = triangle(120, 50, 10)  // obtuse
+// var answer3 = triangle(0, 90, 90)    // invalid
+// var answer4 = triangle(50, 50, 50)   // invalid
+
+
+// Unlucky Days
+
+/*
+Create a function that counts the number of friday the 13ths in
+a given year, which is passed in
+
+input: year, number
+output: number, amount of Friday the 13ths
+
+Data-structure: Date
+
+Algorithm:
+  - start count at 0
+  - For loop through all 12 months and check to see if they are fridays
+    - See if the day === 5
+  - return count
+*/
+
+function fridayThe13ths(year) {
+  var count = 0;
+  var date;
+
+  for (var i = 0; i < 12; i++) {
+    date = new Date(year, i, 13);
+    if (date.getDay() === 5) {
+      count++;
+    }
+  }
+
+  return count;
+}
+
+// var answer = fridayThe13ths(2015) // 3
+// var answer1 = fridayThe13ths(1986) // 1
+
+
+// Next Featured Number
+
+/*
+Create a function the returns the next featured number.
+
+input: number
+output: next featured number
+
+Algorithm:
+  - Divide number by 7 and round down
+  - while loop up the number until featured number works
+  - return featured number
+*/
+
+function featured(number) {
+  if (String(number).length > 10) return 'No more featured numbers.';
+
+  var multiple = Math.floor(number / 7) + 1;
+  multiple += multiple % 2 === 0 ? 1 : 0;
+
+  while (!isFeatured(multiple * 7)) {
+    multiple += 2;
+  }
+
+  return multiple * 7;
+}
+
+function isFeatured(number) {
+  if (number % 2 === 0) return false;
+
+  var stringNum = String(number).split('');
+  var current;
+
+  for (var i = 0; i < stringNum.length; i++) {
+    current = stringNum[i];
+    if (stringNum.slice(i + 1).includes(current)) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+// featured(12)        // 21
+// featured(20)        // 21
+// featured(21)        // 35
+// featured(997)       // 1029
+// featured(1029)      // 1043
+// featured(999999)    // 1023547
+// featured(999999987) // 1023456987
+
+
+// Sum Square
+
+function sumSquareDifference(number) {
+  var numArray = new Array(number).fill(1).map((val, idx) => idx + 1);
+  return sumSquare(numArray) - squareSum(numArray);
+}
+
+function sumSquare(numArray) {
+  return numArray.reduce((acc, val) => acc + val) ** 2;
+}
+
+function squareSum(numArray) {
+  return numArray.reduce((acc, val) => acc + (val ** 2), 0);
+}
+
+var answer = sumSquareDifference(3)    // 22
+// -> (1 + 2 + 3)**2 - (1**2 + 2**2 + 3**2)
+var answer1 = sumSquareDifference(10)   // 2640
+var answer2 = sumSquareDifference(1)    // 0
+var answer3 = sumSquareDifference(100)  // 25164150
+
+
+
+// Bubble Sort
+
+/*
+Algorithm:
+  - while loop that keeps track of needToSort
+  -
+*/
+
+function bubbleSort(array) {
+  var needToSort;
+
+  do {
+    needToSort = false;
+
+    for (var i = 0; i < array.length; i++) {
+      if (array[i] > array[i + 1]) {
+        swapPlaces(array, i);
+        needToSort = true;
+      }
+    }
+  } while (needToSort)
+
+  return array;
+}
+
+function swapPlaces(array, idx) {
+  var placeHolder = array[idx];
+  array[idx] = array[idx + 1];
+  array[idx + 1] = placeHolder;
+}
+
+// var array = [5, 3];
+// bubbleSort(array);
+// console.log(array);     // [3, 5]
+//
+// array = [6, 2, 7, 1, 4]
+// bubbleSort(array);
+// console.log(array);     // [1, 2, 4, 6, 7]
+//
+// array = ['Sue', 'Pete', 'Alice', 'Tyler', 'Rachel', 'Kim', 'Bonnie'];
+// bubbleSort(array);
+// console.log(array);
+
+
+
+// Madlibs
+
+/*
+Create a function that takes a text template and adds random words to it
+
+Data-structure: String and array
+
+input: text template
+output: text in string form
+
+Algorithm:
+  - Create templates that use empty words such as 'noun' and verb
+    - Use words such as 'noun', 'adverb', 'adject'
+  - Pass in template. Replace all template words with real noun or verbs
+    - While loop that tests a regex expression.
+      - As long as it still finds the words "noun", 'verb', etc. Keeps looping
+    - Have arrays that contain words to replace the template words
+    - Use a string replace method with /(noun|verb|adjective|adverb/)
+  - return the string
+*/
+var template1 = 'The adjective brown noun adverb \n' +
+                      'verb the adjective yellow \n' +
+                      'noun, who adverb verb his \n' +
+                      'noun and looks around.';
+
+var template2 = 'The noun verb the noun\'s noun.'
+
+
+function madlibs(template) {
+  var wordTypes = {
+    adjective: ['quick', 'lazy', 'sleepy', 'noisy', 'hungry'],
+    noun: ['fox', 'dog', 'head', 'leg', 'tail'],
+    verb: ['jumps', 'lifts', 'bites', 'licks', 'pats'],
+    adverb: ['easily', 'lazily', 'noisily', 'excitedly'],
+  };
+
+  Object.keys(wordTypes).forEach(function(type) {
+    var regex = new RegExp(type);
+
+    while (regex.test(template)) {
+      template = template.replace(regex, random(wordTypes[type]));
+    }
+  });
+
+  return template
+}
+
+function random(words) {
+  var length = words.length;
+  var randIdx = Math.floor(Math.random() * length);
+
+  return words[randIdx];
+}
+
+
+// madlibs(template1);
+// madlibs(template1);
+// madlibs(template2);
+// madlibs(template2);
+
+
+
+// Transpose 3 X 3
+
+function transpose(array) {
+  return array[0].map(function(col, columnIdx) {
+    return array.map(function(row) {
+      return row[columnIdx];
+    });
+  });
+}
+
+var matrix1 = [
+  [1, 5, 8],
+  [4, 7, 2],
+  [3, 9, 6]
+];
+
+var matrix2 = [
+  [3, 7, 4, 2],
+  [5, 1, 0, 8]
+];
+
+// var newMatrix = transpose(matrix);
+//
+// console.log(newMatrix); // [[1, 4, 3], [5, 7, 9], [8, 2, 6]]
+// console.log(matrix);
+//
+// var answer = transpose([[1, 2, 3, 4]]);       // [[1], [2], [3], [4]]
+// var answer1 = transpose([[1], [2], [3], [4]]); // [[1, 2, 3, 4]]
+// var answer2 = transpose([[1]]);                // [[1]]
+// var answer3 = transpose([[1, 2, 3, 4, 5], [4, 3, 2, 1, 0], [3, 7, 8, 6, 2]]);
+//
+//
+// function transpose(matrix) {
+//   var transposed = [];
+//   var newRowsCount = matrix[0].length;
+//
+//   for (var row = 0; row < newRowsCount; row++) {
+//     transposed.push([]);
+//   }
+//
+//   for (var row = 0, rows = matrix.length; row < rows; row++) {
+//     for (var col = 0, cols = matrix[row].length; col < cols; col++) {
+//       transposed[col].push(matrix[row][col]);
+//     }
+//   }
+//
+//   return transposed;
+// }
+//
+// function transpose(matrix) {
+//   var transposed = [];
+//   var newRowsCount = matrix[0].length;
+//
+//   for (var row = 0; row < newRowsCount; row++) {
+//     transposed.push([]);
+//   }
+//
+//   for (var row = 0, rows = matrix.length; row < rows; row++) {
+//     for (var col = 0, cols = matrix[row].length; col < cols; col++) {
+//       transposed[col].push(matrix[row][col]);
+//     }
+//   }
+  //
+  // return transposed;
+// }
+
+function rotate90(array) {
+  array = array.reverse();
+
+  return array[0].map(function(col, columnIdx) {
+    return array.map(function(row) {
+      return row[columnIdx];
+    });
+  });
+}
+
+// var newMatrix1 = rotate90(matrix1);
+// var newMatrix2 = rotate90(matrix2);
+// var newMatrix3 = rotate90(rotate90(rotate90(rotate90(matrix2))));
+//
+// console.log(newMatrix1); // [[3, 4, 1], [9, 7, 5], [6, 2, 8]]
+// console.log(newMatrix2); // [[5, 3], [1, 7], [0, 4], [8, 2]]
+// console.log(newMatrix3); // matrix2
+
+
+// Merge Sort
+
+// Create a function that merges two sorted arrays into a single sorted array
+// input: two sorted arrays
+// output: one sorted array
+
+// Data-structure: array
+
+/*
+Algorithm:
+  - Loop through both arrays at same time
+    - Have two counters that keep track of the index at each array.
+    - While loop that keeps going until one counter exceeds length
+  - Compare the values at each array index and push lower value to new array
+  - Once while loop breaks, check to see an array has any values left and concat to new array
+  - return new sorted array
+*/
+
+// function merge(arr1, arr2) {
+//   var count1 = 0;
+//   var count2 = 0;
+//   var mergeList = [];
+//   var lesser;
+//   var leftOver;
+//
+//   while (count1 < arr1.length && count2 < arr2.length) {
+//     if (arr1[count1] < arr2[count2]) {
+//       lesser = arr1[count1];
+//       count1++;
+//     } else {
+//       lesser = arr2[count2];
+//       count2++;
+//     }
+//
+//     mergeList.push(lesser);
+//   }
+//
+//   leftOver = count1 < arr1.length ? arr1.slice(count1) : arr2.slice(count2);
+//   return mergeList.concat(leftOver);
+// }
+
+// var answer = merge([1, 5, 9], [2, 6, 8]) // [1, 2, 5, 6, 8, 9]
+// var answer1 = merge([1, 1, 3], [2, 2])    // [1, 1, 2, 2, 3]
+// var answer2 = merge([], [1, 4, 5])        // [1, 4, 5]
+// var answer3 = merge([1, 4, 5], [])        // [1, 4, 5]
+
+
+function mergeSort(array) {
+  if (array.length < 2) return array;
+
+  var half = Math.floor(array.length / 2);
+  var firstHalf = mergeSort(array.slice(0, half));
+  var secondHalf = mergeSort(array.slice(half));
+
+  return merge(firstHalf, secondHalf);
+}
+
+function merge(array1, array2) {
+  var copy1 = array1.slice();
+  var copy2 = array2.slice();
+  var result = [];
+
+  while (copy1.length > 0 && copy2.length > 0) {
+    result.push(copy1[0] <= copy2[0] ? copy1.shift() : copy2.shift());
+  }
+
+  return result.concat(copy1.length === 0 ? copy2 : copy1);
+}
+
+// var answer = mergeSort([9, 5, 7, 1]);                // [1, 5, 7, 9]
+// var answer1 = mergeSort([5, 3]);                      // [3, 5]
+// var answer2 = mergeSort([6, 2, 7, 1, 4]);             // [1, 2, 4, 6, 7]
+// var answer3 = mergeSort(['Sue', 'Pete', 'Alice', 'Tyler', 'Rachel', 'Kim', 'Bonnie']);
+// // ['Alice', 'Bonnie', 'Kim', 'Pete', 'Rachel', 'Sue', 'Tyler']
+// var answer4 = mergeSort([7, 3, 9, 15, 23, 1, 6, 51, 22, 37, 54, 43, 5, 25, 35, 18, 46]);
+// // [1, 3, 5, 6, 7, 9, 15, 18, 22, 23, 25, 35, 37, 43, 46, 51, 54]
+
+
+// Binary Search
+/*
+Create a function that uses binary search to find if a value is in an ordered list
+Binary search:
+  - Go to half way point of list and compare that value to search value
+    - If equals, end search
+    - If greater than, discard lower half and repeat with upper half
+    - if lower than, discard upper half and repeat with lower half;
+  - If value does not exist, return -1
+
+  Data-structure: array
+
+  inputs: array, search item
+  output: index of search item
+
+  - Recursive
+
+Algorithm:
+  - find halfway index of list and compare that value to search item;
+  - If greater, slice list in half and do recursion on top half
+  - Do opposite if lower
+  - If array size is 1 and the values don't equal, return -1
+*/
+
+function binarySearch(array, searchItem, start = 0) {
+  if (array.length === 1 && array[0] !== searchItem) return -1;
+
+  var halfIdx = Math.floor(array.length / 2);
+  var currentIdx = start + halfIdx;
+  var halfArr;
+
+  if (array[halfIdx] > searchItem) {
+    halfArr = array.slice(0, halfIdx);
+    return binarySearch(halfArr, searchItem, currentIdx);
+  } else if (array[halfIdx] < searchItem) {
+    halfArr = array.slice(halfIdx);
+    return binarySearch(halfArr, searchItem, currentIdx);
+  } else {
+    return currentIdx;
+  }
+}
+
+
+// var answer = binarySearch([1, 5, 7, 11, 23, 45, 65, 89, 102], 77);                                // -1
+// var answer1 = binarySearch([1, 5, 7, 11, 23, 45, 65, 89, 102], 89);                                // 7
+// var answer2 = binarySearch(['Alice', 'Bonnie', 'Kim', 'Pete', 'Rachel', 'Sue', 'Tyler'], 'Peter'); // -1
+// var answer3 = binarySearch(['Alice', 'Bonnie', 'Kim', 'Pete', 'Rachel', 'Sue', 'Tyler'], 'Tyler'); // 6
+
+
+
+// Strings Mix
+
+/*
+Description:
+  - Create a function that takes two strings and produces a string
+    displaying the max number of lower case letters in each string greater than 1.
+
+Input: Two strings
+Output: One string with max letters
+
+Data-structure: object
+
+Algorithm:
+  - remove all letters not lowercase, split into array, sort by character code. join and match repeating characters
+  - array of arrays with string of repeat characters and num of array
+*/
+
+function mix(s1, s2) {
+  var ALPHABET = 'abcdefghijklmnopqrstuvwxyz';
+  var repeatedChars = [];
+  var currentChars1;
+  var currentChars2;
+  var length1;
+  var length2
+  var regex;
+  var max;
+
+  s1 = transform(s1, '1');
+  s2 = transform(s2, '2');
+
+  ALPHABET.split('').forEach(function(char) {
+    regex = new RegExp(char);
+    currentChars1 = s1.filter(chars => regex.test(chars[1]));
+    currentChars2 = s2.filter(chars => regex.test(chars[1]));
+    currentChars1 = (currentChars1[0] || []);
+    currentChars2 = (currentChars2[0] || []);
+
+    if (currentChars1.length === 0 && currentChars2.length === 0) {
+      return;
+    } else if (currentChars1.length === 0) {
+      max = currentChars2;
+    } else if (currentChars2.length === 0) {
+      max = currentChars1;
+    } else if (currentChars1[1].length < currentChars2[1].length) {
+      max = currentChars2;
+    } else if (currentChars2.length === 0 || currentChars1[1].length > currentChars2[1].length) {
+      max = currentChars1;
+    } else {
+      max = ['=', currentChars1[1]];
+    }
+
+    repeatedChars.push(max);
+  });
+
+  return repeatedChars.sort(function(a, b) {
+    var n = b[1].length - a[1].length;
+    if (n !== 0) {
+      return n;
+    } else if (a[0] !== '=' && b[0] !== '=' || a[0] === b[0]) {
+      return a[1][0].charCodeAt() - b[1][0].charCodeAt();
+    } else {
+      return (+b[0] || 0) - (+a[0] || 0);
+    }
+  }).map(string => string.join(':')).join('/');
+}
+
+function transform(s, num) {
+  return s.split('')
+          .sort((a, b) => a.charCodeAt() - b.charCodeAt())
+          .join('')
+          .match(/([a-z])\1+/g)
+          .map(str => [num, str]);
+
+}
+
+s1 = "my&friend&Paul has heavy hats! &"
+s2 = "my friend John has many many friends &"
+var answer = mix(s1, s2) // --> "2:nnnnn/1:aaaa/1:hhh/2:mmm/2:yyy/2:dd/2:ff/2:ii/2:rr/=:ee/=:ss"
+
+s1 = "mmmmm m nnnnn y&friend&Paul has heavy hats! &"
+s2 = "my frie n d Joh n has ma n y ma n y frie n ds n&"
+var answer1 = mix(s1, s2) // --> "1:mmmmmm/=:nnnnnn/1:aaaa/1:hhh/2:yyy/2:dd/2:ff/2:ii/2:rr/=:ee/=:ss"
+
+s1="Are the kids at home? aaaaa fffff"
+s2="Yes they are here! aaaaa fffff"
+var answer2 = mix(s1, s2) // --> "=:aaaaaa/2:eeeee/=:fffff/1:tt/2:rr/=:hh"
