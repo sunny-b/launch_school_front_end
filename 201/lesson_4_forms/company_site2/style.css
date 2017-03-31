@@ -1,5 +1,47 @@
 /*
   =======================
+  Animation
+  =======================
+*/
+
+@-webkit-keyframes slideIn {
+  0% { left: -100vw; }
+  100% { left: 0; }
+}
+@-moz-keyframes slideIn {
+  0% { left: -100vw; }
+  100% { left: 0; }
+}
+@-o-keyframes slideIn {
+  0% { left: -100vw; }
+  100% { left: 0; }
+}
+@keyframes slideIn {
+  0% { left: -100vw; }
+  100% { left: 0; }
+}
+
+
+@-webkit-keyframes slideOut {
+  0% { left: 0; }
+  100% { left: 100vw; }
+}
+@-moz-keyframes slideOut {
+  0% { left: 0; }
+  100% { left: 100vw; }
+}
+@-o-keyframes slideOut {
+  0% { left: 0; }
+  100% { left: 100vw; }
+}
+@keyframes slideOut {
+  0% { left: 0; }
+  100% { left: 100vw; }
+}
+
+
+/*
+  =======================
   General
   =======================
 */
@@ -11,6 +53,7 @@ body {
   text-align: center;
   padding-top: 100px;
 }
+
 
 /*
   =======================
@@ -159,6 +202,77 @@ footer .email { background-position: 0 66.6%; }
 
 footer .instagram { background-position: 0 100%; }
 
+/*
+  =======================
+  Modal
+  =======================
+*/
+
+.modal_layer {
+  position: fixed;
+  z-index: 5;
+  opacity: 0.5;
+  background-color: black;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.modal {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20px 20px 70px;
+  margin-left: 0;
+  z-index: 10;
+  background-color: white;
+  font-size: 20px;
+  text-align: justify;
+
+  -webkit-animation: slideOut 0.5s; /* Safari 4+ */
+  -moz-animation:    slideOut 0.5s; /* Fx 5+ */
+  -o-animation:      slideOut 0.5s; /* Opera 12+ */
+  animation:         slideOut 0.5s; /* IE 10+, Fx 29+ */
+}
+
+.modal.slide {
+  -webkit-animation: slideIn 0.5s; /* Safari 4+ */
+  -moz-animation:    slideIn 0.5s; /* Fx 5+ */
+  -o-animation:      slideIn 0.5s; /* Opera 12+ */
+  animation:         slideIn 0.5s; /* IE 10+, Fx 29+ */
+}
+
+#team .modal .close {
+  float: right;
+  clear: both;
+  background: url('images/icon_close.png');
+  width: 30px;
+  height: 30px;
+}
+
+#team .modal img {
+  margin-top: 25px;
+  width: 96px;
+  display: inline-block;
+  margin-right: 30px;
+  vertical-align: middle;
+}
+
+#team .modal p {
+  padding: 0;
+}
+
+.modal h3 {
+  margin-top: 25px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+
+
+
 @media (max-width: 875px) {
   #team li {
     width: 50%;
@@ -204,6 +318,61 @@ footer .instagram { background-position: 0 100%; }
 
   footer li {
     padding: 0 32px;
+  }
+}
+
+@media (min-width: 876px) {
+  @-webkit-keyframes slideIn {
+    0% { left: -100vw; }
+    100% { left: 50%; }
+  }
+  @-moz-keyframes slideIn {
+    0% { left: -100vw; }
+    100% { left: 50%; }
+  }
+  @-o-keyframes slideIn {
+    0% { left: -100vw; }
+    100% { left: 50%; }
+  }
+  @keyframes slideIn {
+    0% { left: -100vw; }
+    100% { left: 50%; }
+  }
+
+
+  @-webkit-keyframes slideOut {
+    0% { left: 50%; }
+    100% { left: 100vw; }
+  }
+  @-moz-keyframes slideOut {
+    0% { left: 50%; }
+    100% { left: 100vw; }
+  }
+  @-o-keyframes slideOut {
+    0% { left: 50%; }
+    100% { left: 100vw; }
+  }
+  @keyframes slideOut {
+    0% { left: 50%; }
+    100% { left: 100vw; }
+  }
+
+  .modal {
+    width: 660px;
+    left: 50%;
+    margin-left: -407px;
+    box-sizing: content-box;
+    padding: 125px 70px 90px 85px;
+  }
+
+  .close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+
+  #team .modal h3, #team .modal img {
+    margin-top: 0;
   }
 }
 
