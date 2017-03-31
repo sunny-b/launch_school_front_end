@@ -31,7 +31,27 @@ ul {
   width: 100%;
   max-width: 600px;
   margin: 0 auto;
+  position: relative;
 }
+
+.left, .right {
+  width: 50%;
+  position: absolute;
+  height: 100%;
+  z-index: 10;
+  top: 0;
+}
+
+.left {
+  left: 0;
+  cursor: w-resize;
+}
+
+.right {
+  right: 0;
+  cursor: e-resize;
+}
+
 
 .main-photos img {
   display: none;
