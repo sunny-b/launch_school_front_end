@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>Dynamic Animcation</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <main>
+      <div class="canvas"></div>
+      <p><a class="animate" href="#">Start</a> | <a class="stop" href="#">Stop</a></p>
+
+      <h1>Add a Shape</h1>
+
+      <form>
+        <h2>Type</h2>
+        <ul>
+          <li>
+            <label>
+              <input type="radio" name="shapes" value="square">
+              Square
+            </label>
+          </li>
+
+          <li>
+            <label>
+              <input type="radio" name="shapes" value="circle">
+              Circle
+            </label>
+          </li>
+
+          <li>
+            <label>
+              <input type="radio" name="shapes" value="star">
+              Star
+            </label>
+          </li>
+        </ul>
+
+        <label for="starting-point">Starting Point:</label>
+        <input type="number" placeholder="x:" name="startx">
+        <input type="number" placeholder="y:" name="starty">
+
+        <label for="ending-point">Ending Point:</label>
+        <input type="number" placeholder="x:" name="endx">
+        <input type="number" placeholder="y:" name="endy">
+
+        <label for="duration">Duration:</label>
+        <input type="number" name="duration" value="1000">
+
+        <input type="submit" value="Add" disabled>
+      </form>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+body {
+  border: 10px solid yellow;
+  margin: 0;
+}
+
+.content {
+  overflow: hidden;
+  padding-bottom: 20px;
+}
+
+main {
+  float: right;
+  width: 80%;
+}
+
+aside {
+  float:left;
+  width: 13%;
+  margin-top: 75px;
+  margin-left: 30px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+main li {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20px;
+  border-bottom: 1px #ccc solid;
+}
+
+main li:last-child {
+  border-bottom: none;
+}
+
+main li:hover {
+  background-color: lightgreen;
+}
