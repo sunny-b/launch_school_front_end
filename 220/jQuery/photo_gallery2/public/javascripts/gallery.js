@@ -1,4 +1,6 @@
 $(function() {
+  var currentPhoto = 0;
+
   function retrieveComments(id) {
     $.get('comments?photo_id=' + id, {}, function(resp) {
       var commentsTemplate = Handlebars.compile($('#comments_').html());
@@ -23,10 +25,11 @@ $(function() {
 
   $('.next, .prev').click(function(e) {
     e.preventDefault();
+    var length = $('#slides figure').length;
 
-    $('#slides figure').eq(currentPhoto).fadeOut(500);
+    $('#slides figure').eq(currentPhoto).fadeOut();
     updatePhotoIndex($(this).hasClass('next'));
-    $('#slides figure').eq(currentPhoto).fadeIn(500);
+    $('#slides figure').eq(currentPhoto).fadeIn();
 
     $.get('photos', {}, function(resp) {
       var photoInfoTemplate = Handlebars.compile($('#photo_information').html());
