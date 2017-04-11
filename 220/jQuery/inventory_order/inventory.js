@@ -6,10 +6,12 @@ var inventory;
     lastID: 0,
     add: function() {
       this.lastID++
-      this.collection.push({ id: this.lastID,
-                             name: '',
-                             stockNumber: '',
-                             quantity: 1 });
+      var item = { id: this.lastID,
+                   name: '',
+                   stockNumber: '',
+                   quantity: 1 };
+      this.collection.push(item);
+      return item;
     },
     remove: function(idx) {
       this.collection = this.collection.filter(item => item.id !== +idx);
@@ -47,17 +49,13 @@ var inventory;
       $('#order_date').text(date.toUTCString());
     },
     cacheTemplate: function() {
-      this.template = $('#inventory_item').remove().html().trim();
-    },
-    replaceID: function(template, id) {
-      return template.replace(/ID/g, id);
+      this.template = Handlebars.compile($('#inventory_item').remove().html());
     },
     newItem: function(e) {
       e.preventDefault();
-      this.add();
+      var item = this.add();
 
-      var newRow = this.replaceID(this.template, this.lastID);
-      $(newRow).appendTo('#inventory');
+      $('#inventory').append(this.template(item));
     },
     bindEvents: function() {
       $('#add_item').click(this.newItem.bind(this));
