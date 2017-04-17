@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Image Manipulator</title>
+    <style>
+    body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      overflow: auto;
+    }
+
+    .col {
+      float: left;
+      width: 50%;
+      box-sizing: border-box;
+      padding: 50px;
+    }
+
+    figure + figure, canvas + canvas {
+      margin-top: 20px;
+    }
+
+    figure, img {
+      width: 100%;
+    }
+
+    figure {
+      max-width: 300px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      text-align: center;
+    }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  </head>
+  <body>
+    <div class="col">
+      <h1>Original</h1>
+      <figure><img id="lady" src="imgs/1.jpg" alt=""></figure>
+      <figure><img id="truck" src="imgs/2.jpg" alt=""></figure>
+      <figure><img id="car" src="imgs/3.jpg" alt=""></figure>
+    </div>
+    <div class="col">
+      <h1>Manipulated</h1>
+    </div>
+    <script src="bower_components/paper/dist/paper-full.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
