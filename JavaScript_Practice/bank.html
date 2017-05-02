@@ -1,0 +1,40 @@
+<script>
+  function makeBank() {
+    var accounts = [];
+
+    function makeAccount(number) {
+      var balance = 0;
+      var number = number;
+
+      return {
+        deposit: function(amount) {
+          this.balance += amount;
+          this.transactions.push({type: 'deposit', amount: amount});
+
+          return amount;
+        },
+        withdraw: function(amount) {
+          this.balance -= amount;
+          this.balance = this.balance < 0 ? 0 : this.balance;
+          this.transactions.push({type: 'withdrawal', amount: amount});
+
+          return amount;
+        },
+        transactions: [],
+      };
+    }
+
+    return {
+      openAccount: function() {
+        var number = accounts.length + 101;
+        var account = makeAccount(number);
+        accounts.push(account);
+
+        return account;
+      },
+      transfer: function(source, destination, amount) {
+        return destination.deposit(source.withdraw(amount));
+      },
+    };
+  }
+</script>

@@ -149,3 +149,32 @@ function notALetter(letter) {
   var alphabet = 'abcdefghijklmnopqrstuvwxyz';
   return !alphabet.includes(letter);
 }
+
+
+
+
+function makeList() {
+  var list = [];
+
+  return {
+    add: function(item) {
+      list.push(item);
+      console.log(item + ' added!');
+    },
+    remove: function(item) {
+      var index = list.indexOf(item);
+
+      if (index !== -1) {
+        list.splice(index, 1)
+        console.log(item + ' removed!');
+      }
+    },
+    list: function() {
+      if (list.length === 0) {
+        console.log('The list is empty.');
+      } else {
+        list.forEach(el => console.log(el));
+      }
+    }
+  };
+}
