@@ -17,6 +17,11 @@ var Items = {
 
     return item;
   },
+  resetCollection: function() {
+    this.collection = [];
+
+    return this.collection;
+  },
 };
 
 var templates = {};
@@ -33,9 +38,18 @@ function renderPage(collection) {
   $('tbody').html($(templates.items({items: collection})));
 }
 
-function sortCollection(collection) {
+function sortCollection(collection, category) {
+  category = category || 'name';
+  var attribute;
+
   return _.sortBy(collection, function(model) {
-    return model.get('name');
+    attribute = model.get(category);
+
+    if (attribute instanceof String) {
+      return attribute.toLowerCase();
+    } else {
+      return attribute;
+    }
   });
 }
 
@@ -49,16 +63,47 @@ function removeItem(id) {
   Items.collection = sortCollection(Items.collection);
 }
 
+function removeFromCollection(e) {
+  e.preventDefault();
+
+  var id = $(e.target).data().id;
+  removeItem(id);
+  renderPage(Items.collection);
+}
+
+function addToCollection(e) {
+  e.preventDefault();
+
+  var item = {};
+  $(e.target).serializeArray().forEach(function(obj) {
+    item[obj.name] = obj.value;
+  });
+
+  Items.create(item);
+  renderPage(Items.collection);
+  e.target.reset();
+}
+
+function clearCollection(e) {
+  e.preventDefault();
+
+  renderPage(Items.resetCollection());
+}
+
+function reSortCollection(e) {
+  e.preventDefault();
+
+  var category = $(e.target).data().prop;
+  renderPage(sortCollection(Items.collection, category));
+}
+
 $(function() {
   Items.seedCollection();
 
   renderPage(Items.collection);
 
-  $('a').on('click', function(e) {
-    e.preventDefault();
-
-    var id = $(this).data().id;
-    removeItem(id);
-    renderPage(Items.collection);
-  });
+  $(document).on('click', '.delete', removeFromCollection);
+  $(document).on('click', '.deleteAll', clearCollection);
+  $(document).on('submit', 'form', addToCollection);
+  $(document).on('click', '[data-prop]', reSortCollection);
 });
