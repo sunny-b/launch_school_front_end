@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>Backbone Model Example</title>
+    <meta charset="UTF-8" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  </head>
+    <script src="js/underscore.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-1.12.4.min.js"
+      integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+      crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.min.js"></script>
+    <script src="js/moment.js"></script>
+    <script src="js/backbone.js"></script>
+    <script>
+      var PostModel = Backbone.Model.extend({
+        initialize: function() {
+          if (!this.get('id')) {
+            this.set('id', this.collection.nextID());
+          }
+        },
+        urlRoot: "http://jsonplaceholder.typicode.com/posts",
+      });
+
+      var Posts = Backbone.Collection.extend({
+        model: PostModel,
+        last_id: 0,
+        setLastID: function() {
+          if (this.isEmpty()) {return;}
+
+          this.last_id = this.last().get('id');
+        },
+        nextID: function() {
+          return ++this.last_id;
+        },
+        initialize: function() {
+          this.on('sync', this.setLastID);
+        }
+      });
+
+      var blog_roll = new Posts();
+      var first_post;
+
+      var users_data = [{
+        id: 1,
+        name: 'Leanne Graham'
+      }, {
+        id: 2,
+        name: 'Ervin Howell'
+      }, {
+        id: 3,
+        name: 'Clementine Bauch'
+      }];
+
+      var User = Backbone.Model.extend({});
+      var Users = Backbone.Collection.extend({
+        model: User,
+        url: "http://jsonplaceholder.typicode.com/users"
+      });
+      var blog_authors = new Users();
+      blog_authors.reset(users_data);
+
+      blog_authors.fetch({
+        reset: true,
+        success: function(model) {
+          console.log(model.toJSON());
+        }
+      });
+
+      blog_roll.fetch({
+        reset: true,
+        success: function(model) {
+          console.log(model.toJSON());
+          first_post = model.get(1);
+          console.log(first_post.toJSON());
+
+          model.set({
+            id: 1,
+            userId: 1,
+            title: "My First Post",
+            body: "This is my first blog post! Yay!"
+          });
+
+          console.log(first_post.toJSON());
+        }
+      });
+
+      blog_roll
+
+    // Now we can check the first_post to make sure the record was updated
+    
+    </script>
+  </body>
+</html>
