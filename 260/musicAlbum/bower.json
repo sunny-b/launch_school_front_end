@@ -1,0 +1,21 @@
+{
+  "name": "music_album",
+  "description": "Music collection application",
+  "main": "app.js",
+  "authors": [
+    "Sunny Beatteay"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/sunny-b/launch_school_front_end",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.2.1",
+    "backbone": "^1.3.3"
+  }
+}
