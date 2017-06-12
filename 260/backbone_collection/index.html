@@ -35,18 +35,12 @@
 
     <script id="items" type="text/x-handlebars">
       {{#each items}}
-      {{#with attributes}}
-        {{> item}}
-      {{/with}}
+        <tr>
+          <td>{{name}}</td>
+          <td>{{quantity}}</td>
+          <td><a class="delete" data-id="{{id}}" href="#">Delete</a></td>
+        </tr>
       {{/each}}
-    </script>
-
-    <script id="item" data-id="partial" type="text/x-handlebars">
-      <tr>
-        <td>{{name}}</td>
-        <td>{{quantity}}</td>
-        <td><a class="delete" data-id="{{id}}" href="#">Delete</a></td>
-      </tr>
     </script>
 
     <script>

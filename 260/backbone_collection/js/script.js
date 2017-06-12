@@ -1,4 +1,5 @@
 var ItemModel = Backbone.Model.extend({
+  idAttribute: 'id',
   initialize: function() {
     if (!this.get('id')) {
       this.set('id', this.collection.nextID());
@@ -14,51 +15,52 @@ var Items = Backbone.Collection.extend({
     this.lastID = this.last().get('id');
   },
   model: ItemModel,
-  sortBy: function(category) {
-    this.comparator = category || 'name';
-    return this.sort();
+  sortBy: function(prop) {
+    this.models = _(this.models).sortBy(function(m) {
+      return m.attributes[prop];
+    });
+    this.trigger('rerender')
   },
-  render: function() {
-    $('tbody').html($(App.templates.items({items: this.toJSON()})));
+  sortByName: function() {
+    this.sortBy('name');
   },
   nextID: function() {
     return ++this.lastID;
   },
   initialize: function() {
     this.on('sync', this.setLastId);
-    this.on('remove reset add', this.render.bind(this));
     this.on('add', function() {
       this.sortBy('name');
-      this.render();
     });
-
-    this.render();
   },
 });
 
-var App = {
-  templates: {},
-  cacheTemplates: function() {
-    var self = this;
-    $('[type*=handlebars]').each(function() {
-      self.templates[$(this).attr('id')] = Handlebars.compile($(this).html());
-    });
+var ItemsView = Backbone.View.extend({
+  el: 'tbody',
+  template: Handlebars.compile($('#items').html()),
+  render: function() {
+    this.$el.html($(this.template({ items: this.collection.toJSON() })));
   },
-  registerPartials: function() {
-    $('[data-id=partial]').each(function() {
-      Handlebars.registerPartial($(this).attr('id'), $(this).html());
-    });
-  },
-  clearCollection: function(e) {
-    e.preventDefault();
-
-    this.collection.reset();
+  events: {
+    'click .delete': 'removeFromCollection'
   },
   removeFromCollection: function(e) {
     e.preventDefault();
 
     var id = $(e.target).data().id;
     this.collection.remove(id);
+  },
+  initialize: function() {
+    this.render();
+    this.listenTo(this.collection, 'remove add reset rerender', this.render.bind(this));
+  }
+});
+
+var App = {
+  clearCollection: function(e) {
+    e.preventDefault();
+
+    this.collection.reset();
   },
   addToCollection: function(e) {
      e.preventDefault();
@@ -78,16 +80,15 @@ var App = {
     this.collection.sortBy(category);
   },
   binds: function() {
-    $(document).on('click', '.delete', this.removeFromCollection.bind(this));
     $(document).on('click', '.deleteAll', this.clearCollection.bind(this));
     $(document).on('submit', 'form', this.addToCollection.bind(this));
-    $(document).on('click', '[data-prop]', this.reSortCollection.bind(this));
+    $(document).on('click', 'th', this.reSortCollection.bind(this));
   },
   init: function() {
-    this.cacheTemplates();
-    this.registerPartials();
     this.binds();
     this.collection = new Items(items_json);
+    this.ItemsView = new ItemsView({ collection: this.collection });
+    this.collection.sortByName();
   }
 };
 

@@ -1,0 +1,26 @@
+-
+  var cart = [{
+    title: 'Actraiser',
+    quantity: 1,
+    price: 50
+  }, {
+    title: 'Metroid Prime',
+    quantity: 2,
+    price: 10.5
+  }, {
+    title: 'Silent Hill 3',
+    quantity: 1,
+    price: 25
+  }];
+
+  function total(a, b) {
+    return (a.price ? a.price * a.quantity : a) + b.price * b.quantity;
+  }
+
+  function format(price) {
+    return price.toFixed(2);
+  }
+
+  function cart_quantity() {
+    return cart.reduce(function(a, b) { return a + b.quantity }, 0);
+  }
